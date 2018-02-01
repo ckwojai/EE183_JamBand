@@ -1,0 +1,29 @@
+* Deliverables
+** Team
+  - [ ] Markdown / web content documenting and demonstrating your band
+  - [ ] Information including bill of materials, wiring schematics, mechanical drawings, well-documented code, etc. necessary to recreate the system
+  - [ ] Describe the construction and operation of the instruments using pictures, videos, and text descriptions.
+  - [ ] Webpage documenting and demonstrating your band and its constituent instruments
+    + Details and videos of various subsystems, and instructions for user interaction
+  - [ ] Generate figures demonstrating relationship between the sensed quantities and the sensor output
+    + graph, a timing diagram, or a table of values, etc.
+  - [ ] Demonstration of Multi-Robot collaboration (instruments performing in harmony)
+  - [ ] Record a live performance and include in the documentation
+** Individual
+   - [ ] Specific individual contributions into an academic poster
+     1) key methods and results
+     2) How each element works
+     3) Detail design process and any design decision
+     4) Potential alternatives and areas for further development
+     5) Include any relevant links to webpages
+     6) Upload a .pdf by <2018-02-08 Thu 16:00>
+* Lab Specification
+** TODO Making Noise
+  - At least two different instruments each driven by separate microcontroller
+** TODO Sensing environment and users
+  - At least two different kinds of sensors
+** TODO Multi-Robot collaboration
+   - Sensors measurements need to be used for instruments to collaborate explicitly with each other
+** TODO User Interface
+   - User interaction through a web-based user interface, hosted on microcontroller or on a separate server with links to command the microcontrollers
+   - Free to choose options to provide the users (start/stop or select song or set tempo, full control programming the music)
