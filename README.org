@@ -1,3 +1,4 @@
+* OUR LANDING PAGE [[https://ckwojai.github.io/EE183_JamBand/]]
 * Deliverables
 ** Team
   - [ ] Markdown / web content documenting and demonstrating your band
