@@ -1,4 +1,4 @@
-int touchPin = 0;
+int touchPin = D2;
 
 void setup() {
   // put your setup code here, to run once:
@@ -14,4 +14,5 @@ void loop() {
     } else {
       Serial.print(".");
     }
+    delay(1000);
 }
