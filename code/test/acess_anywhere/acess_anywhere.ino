@@ -1,15 +1,15 @@
 #include <ESP8266WiFi.h>
 
-const char* ssid = "yourhomewifissid";
-const char* password = "yourwifipassword";
-const char* host = "192.168.0.24"; //it will tell you the IP once it starts up
+const char* ssid = "trythis";
+const char* password = "12345678";
+const char* host = "192.168.4.2"; //it will tell you the IP once it starts up
                                         //just write it here afterwards and upload
 
-WiFiServer server(80); //Initialize the server on Port 80
+WiFiServer server(90); //Initialize the server on Port 80
 
 void setup() {
 
-//WiFi.mode(WIFI_AP); //Our ESP8266-12E is an AccessPoint 
+WiFi.mode(WIFI_STA); //Our ESP8266-12E is an AccessPoint 
 //WiFi.softAP("Hello_IoT", "12345678"); // Provide the (SSID, password); . 
 // server.begin(); // Start the HTTP Server
 //IPAddress HTTPS_ServerIP= WiFi.softAPIP(); // Obtain the IP of the Server 
