@@ -1,0 +1,52 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+#content {
+    text-align: center;
+    padding: 25%;
+    /* text-shadow: 0px 4px 3px rgba(0,0,0,0.4), */
+    /*              0px 8px 13px rbga(0,0,0,0,0.1), */
+    /*              0px 18px 23px rbga(0,0,0,0,0.1); */
+    /* text-shadow: 0px 4px 3px rgba(255, 0, 0, 1), */
+    /*              0px 8px 13px rbga(0, 0, 0, 0, 1), */
+    /*              0px 18px 23px black; */
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 5em;
+}
+
+hr {
+    border-color: white;
+    border-bottom: 1px solid rgba(0,0,0,0,0.2);
+}
+#intro {
+    text-align: center;
+    text-shadow: 0px 4px 3px rgba(0,0,0,1),
+    0px 8px 13px rgba(0,0,0,0.5),
+    0px 18px 23px rgba(0,0,0,0.3);    
+}
+#mode {
+    padding-top: 30px;
+}
+form {
+    display: inline;
+}
+#twinkle{
+    padding: 100px 0 100px 0;
+    font-size: 25px;
+}
+
+#rowtheboat {
+    padding: 100px 0 100px 0;
+    font-size: 26px;
+}
+

@@ -70,9 +70,9 @@ void loop() {
      int distance = ultra_dist();
      Serial.print(distance);
       if (distance > 5) {
-        Speed = 'L';
+        Speed = 'H';
       } else if (distance <5) {
-       Speed = 'H';
+       Speed = 'L';
   }
   }
   // Prepare the HTML document to respond and add buttons:

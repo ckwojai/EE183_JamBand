@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Jam Band</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link href="control.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>	
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">JamBand</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./documentation/documentation.html">Documentation</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./control.html">Control</a>
+                        </li>
+			</ul/>
+                </div>
+            </div>
+
+        </nav>
+	<div id="mode" class="container">
+	    <div class="row">
+		<div class="col-sm">
+		    <h2>Interactive Mode</h2>
+		    <img src="https://imgur.com/ahjwe6o.png" class="img-fluid">
+		</div>		
+		<div class="col-sm-4">
+		    <h2>Autonomous Mode</h2>
+		    <div id="twinkle">
+			<p id="twikle_title" class="text-white bg-dark">Twinkle Twinkle Little Star:</p>
+			<audio controls>
+			    <source src="./music/04 The scientist.mp3" type="audio/mpeg">
+			</audio>		    		    
+			<form action="http://23.243.48.101/ON" method="get">
+			    <input type="submit" class="btn btn-lg btn-success" value="Slow">
+			</form>
+			<form action="http://23.243.48.101/ON" method="get">			
+			    <input type="submit" class="btn btn-lg btn-danger" value="Fast">
+			</form>
+		    </div>
+		    <div id="rowtheboat">
+			<p id="row_title" class="text-white bg-dark">Row Row Row Your Boat:</p>
+			<audio controls>
+			    <source src="./music/04 The scientist.mp3" type="audio/mpeg">
+			</audio>		    		    			
+			<form action="http://23.243.48.101/ON" method="get">
+			    <input type="submit" class="btn btn-lg btn-success" value="Slow">
+			</form>
+			<form action="http://23.243.48.101/ON" method="get">			
+			    <input type="submit" class="btn btn-lg btn-danger" value="Fast">
+			</form>
+		    </div>
+		</div>
+	    </div>
+	</div>
+	<script
+	    src="http://code.jquery.com/jquery-3.3.1.min.js"
+	    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="idk.js"></script>
+    </body>
+</html>
