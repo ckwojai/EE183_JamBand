@@ -2,10 +2,10 @@
 
 const char* ssid = "102-2.4";
 const char* password = "andrewwilliam";
-const char* host = "192.168.4.2"; //it will tell you the IP once it starts up
+const char* host = "192.168.0.24"; //it will tell you the IP once it starts up
                                         //just write it here afterwards and upload
 
-WiFiServer server(90); //Initialize the server on Port 80
+WiFiServer server(80); //Initialize the server on Port 80
 
 void setup() {
 
