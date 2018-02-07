@@ -1,3 +1,21 @@
+* To Recreate our project
+** 1) Buy the materials, here's the list
+   | Item | Cost | Link |
+   |------+------+------|
+   | blah | blah | blah |
+** 2) Wiring, here is the schematic
+   We will be using a buzzer so this component should be connected to this pin because blah blah blah...
+** 3) Test Coding: Setting up servo, buzzer, ultrasonic and touch sensors
+   Something like pinMode(), then command code such as servo1.(angle) or detection code like pin.read('High')
+** 4) Composing your music (how does servo and buzzer work)
+   Lin should write this.
+** 5) Get two microcontroller to communicate with each other
+   Using Serial communication, there is a master and there is a slave. The master send a 'R' signal before it play so that they are synchornized......
+** 6) WIFI connection
+   We use tutorial from this website [[https://github.com/waterbottels/EE183DALab2/blob/master/README.md][link]] to set up WIFI locally. If we want it to go online, we need to set up port forwarding in our router: here's the instruction blahbalhblah
+** 7) Conclusion (putting everythign together)
+   idkman
+
 * OUR LANDING PAGE [[https://ckwojai.github.io/EE183_JamBand/]]
 * Deliverables
 ** Team
