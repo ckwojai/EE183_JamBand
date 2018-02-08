@@ -121,7 +121,8 @@ power most of the devices.
 
 [[https://github.com/waterbottels/EE183DALab2/blob/master/schematic.png]]
 ** Step 4: Code The code can be found here:
-https://github.com/ckwojai/EE183\_JamBand/tree/master/code
+   [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
+   [[https://github.com/ckwojai/EE183_JamBand/tree/master/]]
 
 * Multi-Robot Collaboration
    :PROPERTIES:
