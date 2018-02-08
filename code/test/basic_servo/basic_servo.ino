@@ -1,7 +1,6 @@
 #include <Servo.h>
 Servo servo1;
 void setup() {
-  // put your setup code here, to run once:
   servo1.attach(16); // 16GPIN for servo
 }
 

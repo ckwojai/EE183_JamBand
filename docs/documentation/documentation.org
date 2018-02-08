@@ -1,0 +1,266 @@
+#    -*- mode: org -*-
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:t reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:0
+#+OPTIONS: org-html-indent:nil
+#+REVEAL_MARGIN: 0.2
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: none
+#+REVEAL_THEME: night
+#+REVEAL_HLEVEL: 1
+#+REVEAL_EXTRA_CSS: ./presentation.css
+
+#+TITLE: JamBand
+#+AUTHOR: Amir, Angel, Lin, Wilson
+#+EMAIL: ckwojai@ucla.edu
+* Introduction
+  Our goal was to build a musical "jam band" driven by two ESP8266 microcontrollers, utilizing sensors and actuators. We have an autonomous mode which gives the user an option between two songs, *Row Row Your Boat* and *Twinkle Twinkle*. The user can also decide the tempo of the song in the autonomous mode. The Human controlled mode allows a user to change the songs using a touch sensor and vary the speed of the song with an ultrasonic sensor. The user is given instructions on the website on how to modulate the jam band.
+* What is this?
+  This is a guide to go through our project step by step. Follow along!!!
+* Bill of Materials  
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+** BOM 1
+| QTY | Part Number   | Part Name                | Description                        | Spec Sheet |
+|-----+---------------+--------------------------+------------------------------------+------------|
+|   1 | FS90          | Micro Servo 9g           | Small blue, used for tapping       | [[http://www.mantech.co.za/Datasheets/Products/FITEC_FS90.pdf][link]]       |
+|   1 | Accessory-187 | Jog Type Touch Sensor    | Square blue, 3 prong. Senses touch | [[https://www.amazon.com/Sensor-Capacitive-Arduino-Atomic-Market/dp/B00WH7O00U][link]]       |
+|   1 | HC - SR04     | Ultrasonic Raning Module | looks like robot eyes              | [[http://www.micropik.com/PDF/HCSR04.pdf][link]]       |
+|   2 | 12E           | ESP 8266MOD              | Microcontroller                    | [[http://amazingrobots.net/2017-2/resources/nodemcu_pinout/][link]]       |
+** BOM 2
+| QTY | Part Number   | Part Name                | Description                        | Spec Sheet |
+|-----+---------------+--------------------------+------------------------------------+------------|
+|   1 | 571CK         | Chop Stick               | A wooden Chopstick                 | [[https://docs.google.com/viewer?url=patentimages.storage.googleapis.com/pdfs/US20090026782.pdf][link]]       |
+|   1 | MCBB400       | Breadboard               | For holding components             | [[https://www.melopero.com/datasheets/Breadboard.pdf][link]]       |
+|   1 | 1956725       | PCB Mini Buzzer          | a small black speaker              | [[https://www.jameco.com/z/SV8-Velleman-Audio-Indicator-and-Alerts-Buzzer-8mA-12-Volt-Solder-Through-Hole_1956725.html][link]]       |
+|   1 | RS002C        | Wire Jumper Kit          | Wires for Connecting components    | [[https://www.jameco.com/z/RS002C-Dagu-HiTech-Electronic-Wire-Jumper-Kit-140-Pieces-100-Male-Cables-40-Female-Cables-5-Colors_2150467.html][link]]       |
+** BOM 3
+| QTY | Part Number | Part Name             | Description          | Spec Sheet |
+|-----+-------------+-----------------------+----------------------+------------|
+|   1 | OOBG        | 330 ohm + 5% resistor | a resistor           | [[https://www.sparkfun.com/products/11507][link]]       |
+|   1 | 12E         | Motor Shield          | Housing for ESP 8266 | [[https://hackaday.io/project/8856-incubator-controller/log/29291-node-mcu-motor-shield][link]]       |
+|   2 | LP-503562   | 3.7v Battery          | Powers the robot     | [[https://www.adafruit.com/product/258][link]]       |
+|-----+-------------+-----------------------+----------------------+------------|
+
+* Instruments
+  There are two instruments in our JamBand, a Chopstick Drumstick and a Buzzer. Each of them are connected to its own micro-controller.
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+** Servo: Chopstick DrumStick
+    #+REVEAL_HTML: <img src="https://camo.githubusercontent.com/3030f01bd39d331a8f57546d97d3c1b6166132e8/68747470733a2f2f696d616765732d6e612e73736c2d696d616765732d616d617a6f6e2e636f6d2f696d616765732f492f34312d614138743536754c2e5f53583334325f2e6a7067">
+   A servo is a rotary actuator that allows for precise control of angular position. In our project, a chopstick is attached to our servo arm to extend its length.
+** Buzzer
+   #+REVEAL_HTML: <img src="https://camo.githubusercontent.com/dfb04e3a4dd2851da87cb4cbe61be3b2114be12b/687474703a2f2f7777772e66757475726c65632e636f6d2f50696374757265732f33565049455a4f5043422e6a7067">
+   A buzzer is essentially a programmable device that makes noise. This will act as the main rhythm singer in our JamBand.
+
+* PIN-OUT
+  Before we get into the actual wiring, let's take a look of the PIN-OUT of our ESP8266 & Motor Shield that will be useful for wiring later on.
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+** PINOUT: ESP8266
+   #+REVEAL_HTML: <img src="https://camo.githubusercontent.com/ac7999049d8fcafe57a4f2b68633bda3f13126ac/687474703a2f2f616d617a696e67726f626f74732e6e65742f77702d636f6e74656e742f75706c6f6164732f323031362f30362f6e6f64656d63755f70696e6f75742e706e67">
+** PINOUT: Motor Shield
+   #+REVEAL_HTML: <img src="https://camo.githubusercontent.com/9b270f780bc03e7bb2ea9d578ba12295e4c68bef/687474703a2f2f616d617a696e67726f626f74732e6e65742f77702d636f6e74656e742f75706c6f6164732f323031362f30362f6d6f746f725f736869656c645f6469616772616d2e6a7067">
+   NOTE: Motor Shield is basically a board that makes wiring our ESP8266 easier. This is optional.
+* Schematic
+  The schematics of our circuits are shown below, follow the exact connection!
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+** Mechanical Drawing
+   [[./img/mechanics.png]]
+** Circuit Schematic
+   [[./img/schematic.png]]
+
+* Arduino Setup
+  Before we get into some coding, let's make sure your have Arduino setup. Here is a quick setup guide from [[http://www.instructables.com/id/Programming-the-ESP8266-12E-using-Arduino-software/][Instructables]].
+  Moreover, we will need to install drivers for our ESP to connect with our computer. Drivers for different OSs can be found [[https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers][here]].
+* Time to Code
+  In the following, we will guide your through some very basic code to make our servo, buzzer, ultrasonic, touch sensors to work. We can then build up from our basic code. All the code can be found in this [[https://github.com/ckwojai/EE183_JamBand/tree/master/code/test][Github folder]].
+** TestCode: Servo
+   #+BEGIN_SRC C
+     #include <Servo.h>
+     Servo servo1;
+     void setup() {
+       servo1.attach(16);
+       void loop() {
+	 servo1.write(90);
+	 delay(500);
+	 servo1.write(0);
+	 delay(500);
+       }
+     }
+   #+END_SRC
+   In void setup, we attach the global Servo object servo1 to whatever signal pin (orange) your servo is connected to (Brown=GND; Red=VCC; Orange=Signal). In loop, we basically set the angle for the servo to got to and a delay right after to give it time to reach such orientation.
+
+** TestCode: Buzzer
+   #+BEGIN_SRC C
+     #include <Servo.h>
+     Servo servo1;
+     void setup() {
+       servo1.attach(16);
+       void loop() {
+	 servo1.write(90);
+	 delay(500);
+	 servo1.write(0);
+	 delay(500);
+       }
+     }
+   #+END_SRC
+   In void setup, we attach the global Servo object servo1 to whatever signal pin (orange) your servo is connected to (Brown=GND; Red=VCC; Orange=Signal). In loop, we basically set the angle for the servo to got to and a delay right after to give it time to reach such orientation.
+** TestCode: Ultrasonic Sensor
+   #+BEGIN_SRC C
+     const int trigPin = D5;
+     const int echoPin = D6;
+     long duration;
+     int distance;
+     void setup() {
+       pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+       pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+       Serial.begin(115200); // Starts the serial communication
+     }
+     void loop() {
+       // Clears the trigPin
+       digitalWrite(trigPin, LOW);
+       delayMicroseconds(2);
+       // Sets the trigPin on HIGH state for 10 micro seconds
+       digitalWrite(trigPin, HIGH);
+       delayMicroseconds(10);
+       digitalWrite(trigPin, LOW);
+       // Reads the echoPin, returns the sound wave travel time in microseconds
+       duration = pulseIn(echoPin, HIGH);
+       // Calculating the distance
+       distance= duration*0.034/2;
+       // Prints the distance on the Serial Monitor
+       Serial.print("Distance: ");
+       Serial.println(distance);
+       delay(1000);
+     }
+   #+END_SRC
+   The above code should be pretty self-explanatory.
+** TestCode: Touch Sensor
+   #+BEGIN_SRC C
+     int touchPin = D2;
+     void setup() {
+       Serial.begin(115200);
+       pinMode(touchPin, INPUT); 
+     }
+     void loop() {
+       int touchValue = digitalRead(touchPin);
+       if (touchValue == HIGH) {
+	 Serial.println("TOUCHED");
+       } else {
+	 Serial.print(".");
+       }
+       delay(1000);
+     }
+   #+END_SRC
+   The above code should be pretty self-explanatory.
+* Composing your music with Servo and Buzzer
+  Lin should write this.
+** Part 1
+** Part 2
+** Part 3
+* Communication between two micro-controllers
+  Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the same of simplicity, we are using Serial Communication. 
+** Wire connection
+   First, connects Tx to Rx from one MCUs and and vice versa for the other. Then, a simple code can be used to test if the channel is working. Note that here we are treating the Drumsticks side as a master (sender) and the Buzzer side as a slave (receiver).
+** Serial Communication: Sender side
+   #+BEGIN_SRC C
+     void setup() {
+       Serial.begin(115200);
+     }
+     void loop() {
+       Serial.print('H'); // Command the slave to turn the LED ON
+       delay(2000);
+       Serial.print('L'); // Command the slave to turn the LED OFF
+       delay(2000);  
+     }
+   #+END_SRC
+** Serial Communication: Receiver side  
+   #+BEGIN_SRC C
+     int incomingByte;      // a variable to read incoming serial data into
+     void setup() {
+       Serial.begin(115200);
+       pinMode(LED_BUILTIN, OUTPUT); // built-in LED pin for ESP8266
+     }
+     void loop() {
+       // see if there's incoming serial data:
+       if (Serial.available() > 0) {
+	 // read the oldest byte in the serial buffer:
+	 incomingByte = Serial.read();
+	 // if it's a capital H (ASCII 72), turn on the LED:
+	 if (incomingByte == 'H') {
+	   digitalWrite(LED_BUILTIN, HIGH);
+	 }
+	 // if it's an L (ASCII 76) turn off the LED:
+	 if (incomingByte == 'L') {
+	   digitalWrite(LED_BUILTIN, LOW);
+	 }
+       }
+     }
+   #+END_SRC   
+   Update this code to your two MCUs, you should see the 'L' and 'H' in the Serial Monitor on the sender side while the LED on the receiver side should toggle ON and OFF in a interval of 2 seconds.
+
+* WIFI connection
+  Time to connect your controller to the web so that users can control your band through WIFI.
+  For Access-Point WIFI setup, please reference to this online [[http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/][tutorial]].
+** Employ your device to the World-Wide Web
+   Please complete the tutorials linked in the previous slide before attempting this setup. In the online tutorial, you successful create a WIFI access point at your ESP8266 device; however, users have to connect to the WIFI you created in order to control the band. Quite inconvenient right? Indeed, we can actually do a simple port forward using our home WIFI to get our project online.
+** ESP as a workstation: setup
+   #+BEGIN_SRC C
+     #include <ESP8266WiFi.h>
+     const char* ssid = "your_home_wifi_ssid";
+     const char* password = "your_home_wifi_password";
+     const char* host = "192.168.0.24"; //it will tell you the IP once it starts up
+     WiFiServer server(80); //Initialize the server on Port 80
+     void setup() {
+       WiFi.mode(WIFI_STA); //Our ESP8266-12E is a Work STAtion connected to your Home Wifi  
+       Serial.begin(115200); //Start communication between the ESP8266-12E and the monitor window
+       Serial.print("Connecting to ");
+       Serial.println(ssid);
+       WiFi.begin(ssid, password);
+       while (WiFi.status() != WL_CONNECTED) {
+	 delay(500);
+	 Serial.print(".");
+       }
+       Serial.println("WiFi connected");
+       server.begin(); // Start the server
+       // Print the IP address
+       Serial.println(WiFi.localIP());
+       pinMode(LED_BUILTIN, OUTPUT); //GPIO16 is an OUTPUT pin;
+       digitalWrite(LED_BUILTIN, LOW); //Initial state is ON
+     }
+   #+END_SRC
+
+** ESP as a workstation: loop
+   The code in loop() should be exactly the same as in the [[http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/][tutorial]].
+   Essentially what we did here is connect our ESP to our home WIFI which is CONNECTED to the Internet; instead of treating ESP as a WIFI access point. Connecting to our home WIFI is a crucial step in getting our project online.
+** Port Forwarding
+   If everything works well, you should now be able to connect to the control page at 192.108.4.1 given you are connected to your home WIFI. To get it online, we need to do a port forwarding in our router setting.
+   1) Go to 192.168.0.1 (or whatever your router setting page is)
+   2) Find port forwarding, look for two options to fill in: IP address and port 
+   3) Go to [[http://www.whatsmyip.org]] to find IP address for your router
+   4) In the router port forwarding page, fill the IP address you found and the port you set in your Arduino code (80 in our case).
+** Try it out!
+   If everything sets up correctly, go to the IP address of your router from anywhere whether you are using WIFI or cellular data. You should be able to see that control page of our jamband. Yay!
+* Summary 
+  Now that you have learned all the essential knowledge in creating your own project, it's up to you to put everything together. If you want to recreate  the project we did, follow the steps below:
+  1) Compose two songs each having two tempos, make sure the two instruments play in harmony.
+  2) Serial Communication: Send Ready, Song, and Tempo Signals on the master side, while write layers of if statements in the slave side to make sure it plays ONLY when according signals are received.
+  3) Write your sensors' code in your master side to change the behavior of the systems based on reading from sensors.
+  4) Employ it online: create a separate webpage that has buttons that links to different states of the message. e.g send a GET request to ip_address/T/L to play Twinkle Twinkle little star in a sLow tempo.
+* Conclusion
+  
+* 1) Buy the materials, here's the list
+   | Item | Cost | Link |
+   |------+------+------|
+   | blah | blah | blah |
+* 2) Wiring, here is the schematic
+   We will be using a buzzer so this component should be connected to this pin because blah blah blah...
+* 3) Test Coding: Setting up servo, buzzer, ultrasonic and touch sensors
+   Something like pinMode(), then command code such as servo1.(angle) or detection code like pin.read('High')
+* 4) Composing your music (how does servo and buzzer work)
+   Lin should write this.
+* 5) Get two microcontroller to communicate with each other
+   Using Serial communication, there is a master and there is a slave. The master send a 'R' signal before it play so that they are synchornized......
+* 6) WIFI connection
+  We use tutorial from this website [[https://github.com/waterbottels/EE183DALab2/blob/master/README.md][link]] to set up WIFI locally. If we want it to go online, we need to set up port forwarding in our router: here's the instruction blahbalhblah
+* 7) Conclusion (putting everything together)

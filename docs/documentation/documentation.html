@@ -1,60 +1,705 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Jam Band</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-        <link href="app.css" type="text/css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-        <script src="https://use.fontawesome.com/04ab533f95.js"></script>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">JamBand</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./documentation/documentation.html">Documentation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Control</a>
-                        </li>
-			</ul/>>
-                </div>
-            </div>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>JamBand</title>
+<meta name="author" content="(Amir, Angel, Lin, Wilson)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
 
-        </nav>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div id="content">
-                        <h1>JamBand</h1>
-                        <h3>The onlyHuman-Robot interactive band</h3>
-                        <hr>
-			<form action="http://23.243.48.101/ON" method="get">
-			    <!-- <input type="button" class="btn btn-lg btn-info" value="LED ON" onclick="location.href = 'http:\\www.google.com';"> -->
-			    <input type="submit" class="btn btn-lg btn-info" value="LED ON">
-			    <form action="http://23.243.48.101/OFF" method="get">
-				<!-- <input type="button" class="btn btn-lg btn-info" value="LED ON" onclick="location.href = 'http:\\www.google.com';"> -->
-				<input type="submit" class="btn btn-lg btn-info" value="LED OFF">
-			    </form>			    
-                    </div>
-                </div>
-            </div>
-        </div>
-	<script
-	    src="http://code.jquery.com/jquery-3.3.1.min.js"
-		 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-		 crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="idk.js"></script>
-    </body>
+<link rel="stylesheet" href="./reveal.js/css/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="./presentation.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">JamBand</h1><h2 class="author">Amir, Angel, Lin, Wilson</h2><p class="date">Created: 2018-02-07 Wed 15:58</p>
+</section>
+<section>
+<section id="slide-org94e069e">
+<h2 id="org94e069e">Introduction</h2>
+<p>
+Our goal was to build a musical "jam band" driven by two ESP8266 microcontrollers, utilizing sensors and actuators. We have an autonomous mode which gives the user an option between two songs, <b>Row Row Your Boat</b> and <b>Twinkle Twinkle</b>. The user can also decide the tempo of the song in the autonomous mode. The Human controlled mode allows a user to change the songs using a touch sensor and vary the speed of the song with an ultrasonic sensor. The user is given instructions on the website on how to modulate the jam band.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org6a96670">
+<h2 id="org6a96670">What is this?</h2>
+<p>
+This is a guide to go through our project step by step. Follow along!!!
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orge0f5b4d">
+<h2 id="orge0f5b4d">Bill of Materials</h2>
+<a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+</section>
+<section id="slide-org4162556">
+<h3 id="org4162556">BOM 1</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">QTY</th>
+<th scope="col" class="org-left">Part Number</th>
+<th scope="col" class="org-left">Part Name</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Spec Sheet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">FS90</td>
+<td class="org-left">Micro Servo 9g</td>
+<td class="org-left">Small blue, used for tapping</td>
+<td class="org-left"><a href="http://www.mantech.co.za/Datasheets/Products/FITEC_FS90.pdf">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">Accessory-187</td>
+<td class="org-left">Jog Type Touch Sensor</td>
+<td class="org-left">Square blue, 3 prong. Senses touch</td>
+<td class="org-left"><a href="https://www.amazon.com/Sensor-Capacitive-Arduino-Atomic-Market/dp/B00WH7O00U">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">HC - SR04</td>
+<td class="org-left">Ultrasonic Raning Module</td>
+<td class="org-left">looks like robot eyes</td>
+<td class="org-left"><a href="http://www.micropik.com/PDF/HCSR04.pdf">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">12E</td>
+<td class="org-left">ESP 8266MOD</td>
+<td class="org-left">Microcontroller</td>
+<td class="org-left"><a href="http://amazingrobots.net/2017-2/resources/nodemcu_pinout/">link</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-org9bc243f">
+<h3 id="org9bc243f">BOM 2</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">QTY</th>
+<th scope="col" class="org-left">Part Number</th>
+<th scope="col" class="org-left">Part Name</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Spec Sheet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">571CK</td>
+<td class="org-left">Chop Stick</td>
+<td class="org-left">A wooden Chopstick</td>
+<td class="org-left"><a href="https://docs.google.com/viewer?url=patentimages.storage.googleapis.com/pdfs/US20090026782.pdf">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">MCBB400</td>
+<td class="org-left">Breadboard</td>
+<td class="org-left">For holding components</td>
+<td class="org-left"><a href="https://www.melopero.com/datasheets/Breadboard.pdf">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">1956725</td>
+<td class="org-left">PCB Mini Buzzer</td>
+<td class="org-left">a small black speaker</td>
+<td class="org-left"><a href="https://www.jameco.com/z/SV8-Velleman-Audio-Indicator-and-Alerts-Buzzer-8mA-12-Volt-Solder-Through-Hole_1956725.html">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">RS002C</td>
+<td class="org-left">Wire Jumper Kit</td>
+<td class="org-left">Wires for Connecting components</td>
+<td class="org-left"><a href="https://www.jameco.com/z/RS002C-Dagu-HiTech-Electronic-Wire-Jumper-Kit-140-Pieces-100-Male-Cables-40-Female-Cables-5-Colors_2150467.html">link</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-org8583d05">
+<h3 id="org8583d05">BOM 3</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">QTY</th>
+<th scope="col" class="org-left">Part Number</th>
+<th scope="col" class="org-left">Part Name</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Spec Sheet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">OOBG</td>
+<td class="org-left">330 ohm + 5% resistor</td>
+<td class="org-left">a resistor</td>
+<td class="org-left"><a href="https://www.sparkfun.com/products/11507">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">12E</td>
+<td class="org-left">Motor Shield</td>
+<td class="org-left">Housing for ESP 8266</td>
+<td class="org-left"><a href="https://hackaday.io/project/8856-incubator-controller/log/29291-node-mcu-motor-shield">link</a></td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">LP-503562</td>
+<td class="org-left">3.7v Battery</td>
+<td class="org-left">Powers the robot</td>
+<td class="org-left"><a href="https://www.adafruit.com/product/258">link</a></td>
+</tr>
+</tbody>
+</table>
+
+</section>
+</section>
+<section>
+<section id="slide-org73b2422">
+<h2 id="org73b2422">Instruments</h2>
+<p>
+There are two instruments in our JamBand, a Chopstick Drumstick and a Buzzer. Each of them are connected to its own micro-controller.
+</p>
+<a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+</section>
+<section id="slide-orgc51e118">
+<h3 id="orgc51e118">Servo: Chopstick DrumStick</h3>
+<img src="https://camo.githubusercontent.com/3030f01bd39d331a8f57546d97d3c1b6166132e8/68747470733a2f2f696d616765732d6e612e73736c2d696d616765732d616d617a6f6e2e636f6d2f696d616765732f492f34312d614138743536754c2e5f53583334325f2e6a7067">
+<p>
+A servo is a rotary actuator that allows for precise control of angular position. In our project, a chopstick is attached to our servo arm to extend its length.
+</p>
+</section>
+<section id="slide-org2b81d7a">
+<h3 id="org2b81d7a">Buzzer</h3>
+<img src="https://camo.githubusercontent.com/dfb04e3a4dd2851da87cb4cbe61be3b2114be12b/687474703a2f2f7777772e66757475726c65632e636f6d2f50696374757265732f33565049455a4f5043422e6a7067">
+<p>
+A buzzer is essentially a programmable device that makes noise. This will act as the main rhythm singer in our JamBand.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org6d16e70">
+<h2 id="org6d16e70">PIN-OUT</h2>
+<p>
+Before we get into the actual wiring, let's take a look of the PIN-OUT of our ESP8266 &amp; Motor Shield
+</p>
+<a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+</section>
+<section id="slide-org3cbe54d">
+<h3 id="org3cbe54d">PINOUT: ESP8266</h3>
+<img src="https://camo.githubusercontent.com/ac7999049d8fcafe57a4f2b68633bda3f13126ac/687474703a2f2f616d617a696e67726f626f74732e6e65742f77702d636f6e74656e742f75706c6f6164732f323031362f30362f6e6f64656d63755f70696e6f75742e706e67">
+</section>
+<section id="slide-org544c763">
+<h3 id="org544c763">PINOUT: Motor Shield</h3>
+<img src="https://camo.githubusercontent.com/9b270f780bc03e7bb2ea9d578ba12295e4c68bef/687474703a2f2f616d617a696e67726f626f74732e6e65742f77702d636f6e74656e742f75706c6f6164732f323031362f30362f6d6f746f725f736869656c645f6469616772616d2e6a7067">
+<p>
+NOTE: Motor Shield is basically a board that makes wiring our ESP8266 easier. This is optional.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org12bee7d">
+<h2 id="org12bee7d">Schematic</h2>
+<p>
+The schematics of our circuits are shown below, follow the exact connection!
+</p>
+<a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+</section>
+<section id="slide-orge2a764b">
+<h3 id="orge2a764b">Mechanical Drawing</h3>
+
+<div class="figure">
+<p><img src="./img/mechanics.png" alt="mechanics.png" />
+</p>
+</div>
+</section>
+<section id="slide-org3a35c78">
+<h3 id="org3a35c78">Circuit Schematic</h3>
+
+<div class="figure">
+<p><img src="./img/schematic.png" alt="schematic.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org27a5515">
+<h2 id="org27a5515">Arduino Setup</h2>
+<p>
+Before we get into some coding, let's make sure your have Arduino setup. Here is a quick setup guide from <a href="http://www.instructables.com/id/Programming-the-ESP8266-12E-using-Arduino-software/">Instructables</a>.
+Moreover, we will need to install drivers for our ESP to connect with our computer. Drivers for different OSs can be found <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">here</a>.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org26595f5">
+<h2 id="org26595f5">Time to Code</h2>
+<p>
+In the following, we will guide your through some very basic code to make our servo, buzzer, ultrasonic, touch sensors to work. We can then build up from our basic code. All the code can be found in this <a href="https://github.com/ckwojai/EE183_JamBand/tree/master/code/test">Github folder</a>.
+</p>
+</section>
+<section id="slide-org782a034">
+<h3 id="org782a034">TestCode: Servo</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #c397d8;">#include</span> <span style="color: #70c0b1;">&lt;Servo.h&gt;</span>
+<span style="color: #7aa6da;">Servo</span> <span style="color: #e7c547;">servo1</span>;
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
+  servo1.attach(16);
+  <span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">loop</span>() {
+    servo1.write(90);
+    delay(500);
+    servo1.write(0);
+    delay(500);
+  }
+}
+</pre>
+</div>
+<p>
+In void setup, we attach the global Servo object servo1 to whatever signal pin (orange) your servo is connected to (Brown=GND; Red=VCC; Orange=Signal). In loop, we basically set the angle for the servo to got to and a delay right after to give it time to reach such orientation.
+</p>
+
+</section>
+<section id="slide-orgfa0ecd0">
+<h3 id="orgfa0ecd0">TestCode: Buzzer</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #c397d8;">#include</span> <span style="color: #70c0b1;">&lt;Servo.h&gt;</span>
+<span style="color: #7aa6da;">Servo</span> <span style="color: #e7c547;">servo1</span>;
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
+  servo1.attach(16);
+  <span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">loop</span>() {
+    servo1.write(90);
+    delay(500);
+    servo1.write(0);
+    delay(500);
+  }
+}
+</pre>
+</div>
+<p>
+In void setup, we attach the global Servo object servo1 to whatever signal pin (orange) your servo is connected to (Brown=GND; Red=VCC; Orange=Signal). In loop, we basically set the angle for the servo to got to and a delay right after to give it time to reach such orientation.
+</p>
+</section>
+<section id="slide-org39cefea">
+<h3 id="org39cefea">TestCode: Ultrasonic Sensor</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #b9ca4a;">const</span> <span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">trigPin</span> = D5;
+<span style="color: #b9ca4a;">const</span> <span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">echoPin</span> = D6;
+<span style="color: #7aa6da;">long</span> <span style="color: #e7c547;">duration</span>;
+<span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">distance</span>;
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
+  pinMode(trigPin, OUTPUT); <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Sets the trigPin as an Output</span>
+  pinMode(echoPin, INPUT); <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Sets the echoPin as an Input</span>
+  Serial.begin(115200); <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Starts the serial communication</span>
+}
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">loop</span>() {
+  <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Clears the trigPin</span>
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Sets the trigPin on HIGH state for 10 micro seconds</span>
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Reads the echoPin, returns the sound wave travel time in microseconds</span>
+  duration = pulseIn(echoPin, HIGH);
+  <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Calculating the distance</span>
+  distance= duration*0.034/2;
+  <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Prints the distance on the Serial Monitor</span>
+  Serial.print(<span style="color: #70c0b1;">"Distance: "</span>);
+  Serial.println(distance);
+  delay(1000);
+}
+</pre>
+</div>
+<p>
+The above code should be pretty self-explanatory.
+</p>
+</section>
+<section id="slide-orge76e507">
+<h3 id="orge76e507">TestCode: Touch Sensor</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">touchPin</span> = D2;
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
+  Serial.begin(115200);
+  pinMode(touchPin, INPUT); 
+}
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">loop</span>() {
+  <span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">touchValue</span> = digitalRead(touchPin);
+  <span style="color: #b9ca4a;">if</span> (touchValue == HIGH) {
+    Serial.println(<span style="color: #70c0b1;">"TOUCHED"</span>);
+  } <span style="color: #b9ca4a;">else</span> {
+    Serial.print(<span style="color: #70c0b1;">"."</span>);
+  }
+  delay(1000);
+}
+</pre>
+</div>
+<p>
+The above code should be pretty self-explanatory.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgf9d3b7f">
+<h2 id="orgf9d3b7f">Composing your music with Servo and Buzzer</h2>
+<p>
+Lin should write this.
+</p>
+</section>
+<section id="slide-org6de966a">
+<h3 id="org6de966a">Part 1</h3>
+</section>
+<section id="slide-org62527db">
+<h3 id="org62527db">Part 2</h3>
+</section>
+<section id="slide-orge714882">
+<h3 id="orge714882">Part 3</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgc086a97">
+<h2 id="orgc086a97">Communication between two micro-controllers</h2>
+<p>
+Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the same of simplicity, we are using Serial Communication. 
+</p>
+</section>
+<section id="slide-org2d318a1">
+<h3 id="org2d318a1">Wire connection</h3>
+<p>
+First, connects Tx to Rx from one MCUs and and vice versa for the other. Then, a simple code can be used to test if the channel is working. Note that here we are treating the Drumsticks side as a master (sender) and the Buzzer side as a slave (receiver).
+</p>
+</section>
+<section id="slide-orge7997b8">
+<h3 id="orge7997b8">Serial Communication: Sender side</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
+  Serial.begin(115200);
+}
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">loop</span>() {
+  Serial.print(<span style="color: #70c0b1;">'H'</span>); <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Command the slave to turn the LED ON</span>
+  delay(2000);
+  Serial.print(<span style="color: #70c0b1;">'L'</span>); <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Command the slave to turn the LED OFF</span>
+  delay(2000);  
+}
+</pre>
+</div>
+</section>
+<section id="slide-org9b44aec">
+<h3 id="org9b44aec">Serial Communication: Receiver side</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">incomingByte</span>;      <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">a variable to read incoming serial data into</span>
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
+  Serial.begin(115200);
+  pinMode(LED_BUILTIN, OUTPUT); <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">built-in LED pin for ESP8266</span>
+}
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">loop</span>() {
+  <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">see if there's incoming serial data:</span>
+  <span style="color: #b9ca4a;">if</span> (Serial.available() &gt; 0) {
+    <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">read the oldest byte in the serial buffer:</span>
+    incomingByte = Serial.read();
+    <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">if it's a capital H (ASCII 72), turn on the LED:</span>
+    <span style="color: #b9ca4a;">if</span> (incomingByte == <span style="color: #70c0b1;">'H'</span>) {
+      digitalWrite(LED_BUILTIN, HIGH);
+    }
+    <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">if it's an L (ASCII 76) turn off the LED:</span>
+    <span style="color: #b9ca4a;">if</span> (incomingByte == <span style="color: #70c0b1;">'L'</span>) {
+      digitalWrite(LED_BUILTIN, LOW);
+    }
+  }
+}
+</pre>
+</div>
+<p>
+Update this code to your two MCUs, you should see the 'L' and 'H' in the Serial Monitor on the sender side while the LED on the receiver side should toggle ON and OFF in a interval of 2 seconds.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf19cc07">
+<h2 id="orgf19cc07">WIFI connection</h2>
+<p>
+Time to connect your controller to the web so that users can control your band through WIFI.
+For Access-Point WIFI setup, please reference to this online <a href="http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/">tutorial</a>.
+</p>
+</section>
+<section id="slide-orgd247b27">
+<h3 id="orgd247b27">Employ your device to the World-Wide Web</h3>
+<p>
+Please complete the tutorials linked in the previous slide before attempting this setup. In the online tutorial, you successful create a WIFI access point at your ESP8266 device; however, users have to connect to the WIFI you created in order to control the band. Quite inconvenient right? Indeed, we can actually do a simple port forward using our home WIFI to get our project online.
+</p>
+</section>
+<section id="slide-org9c460a1">
+<h3 id="org9c460a1">ESP as a workstation: setup</h3>
+<div class="org-src-container">
+
+<pre  class="src src-C"><span style="color: #c397d8;">#include</span> <span style="color: #70c0b1;">&lt;ESP8266WiFi.h&gt;</span>
+<span style="color: #b9ca4a;">const</span> <span style="color: #7aa6da;">char</span>* <span style="color: #e7c547;">ssid</span> = <span style="color: #70c0b1;">"your_home_wifi_ssid"</span>;
+<span style="color: #b9ca4a;">const</span> <span style="color: #7aa6da;">char</span>* <span style="color: #e7c547;">password</span> = <span style="color: #70c0b1;">"your_home_wifi_password"</span>;
+<span style="color: #b9ca4a;">const</span> <span style="color: #7aa6da;">char</span>* <span style="color: #e7c547;">host</span> = <span style="color: #70c0b1;">"192.168.0.24"</span>; <span style="color: #969896; font-style: italic;">//</span><span style="color: #969896; font-style: italic;">it will tell you the IP once it starts up</span>
+<span style="color: #7aa6da;">WiFiServer</span> <span style="color: #e78c45;">server</span>(80); <span style="color: #969896; font-style: italic;">//</span><span style="color: #969896; font-style: italic;">Initialize the server on Port 80</span>
+<span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
+  WiFi.mode(WIFI_STA); <span style="color: #969896; font-style: italic;">//</span><span style="color: #969896; font-style: italic;">Our ESP8266-12E is a Work STAtion connected to your Home Wifi  </span>
+  Serial.begin(115200); <span style="color: #969896; font-style: italic;">//</span><span style="color: #969896; font-style: italic;">Start communication between the ESP8266-12E and the monitor window</span>
+  Serial.print(<span style="color: #70c0b1;">"Connecting to "</span>);
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  <span style="color: #b9ca4a;">while</span> (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(<span style="color: #70c0b1;">"."</span>);
+  }
+  Serial.println(<span style="color: #70c0b1;">"WiFi connected"</span>);
+  server.begin(); <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Start the server</span>
+  <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">Print the IP address</span>
+  Serial.println(WiFi.localIP());
+  pinMode(LED_BUILTIN, OUTPUT); <span style="color: #969896; font-style: italic;">//</span><span style="color: #969896; font-style: italic;">GPIO16 is an OUTPUT pin;</span>
+  digitalWrite(LED_BUILTIN, LOW); <span style="color: #969896; font-style: italic;">//</span><span style="color: #969896; font-style: italic;">Initial state is ON</span>
+}
+</pre>
+</div>
+
+</section>
+<section id="slide-org51fe08a">
+<h3 id="org51fe08a">ESP as a workstation: loop</h3>
+<p>
+The code in loop() should be exactly the same as in the <a href="http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/">tutorial</a>.
+Essentially what we did here is connect our ESP to our home WIFI which is CONNECTED to the Internet; instead of treating ESP as a WIFI access point. Connecting to our home WIFI is a crucial step in getting our project online.
+</p>
+</section>
+<section id="slide-org11ab52b">
+<h3 id="org11ab52b">Port Forwarding</h3>
+<p>
+If everything works well, you should now be able to connect to the control page at 192.108.4.1 given you are connected to your home WIFI. To get it online, we need to do a port forwarding in our router setting.
+</p>
+<ol>
+<li>Go to 192.168.0.1 (or whatever your router setting page is)</li>
+<li>Find port forwarding, look for two options to fill in: IP address and port</li>
+<li>Go to <a href="http://www.whatsmyip.org">http://www.whatsmyip.org</a> to find IP address for your router</li>
+<li>In the router port forwarding page, fill the IP address you found and the port you set in your Arduino code (80 in our case).</li>
+
+</ol>
+</section>
+<section id="slide-orgedb0371">
+<h3 id="orgedb0371">Try it out!</h3>
+<p>
+If everything sets up correctly, go to the IP address of your router from anywhere whether you are using WIFI or cellular data. You should be able to see that control page of our jamband. Yay!
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org9fb4cf9">
+<h2 id="org9fb4cf9">Summary</h2>
+<p>
+Now that you have learned all the essential knowledge in creating your own project, it's up to you to put everything together. If you want to recreate  the project we did, follow the steps below:
+</p>
+<ol>
+<li>Compose two songs each having two tempos, make sure the two instruments play in harmony.</li>
+<li>Serial Communication: Send Ready, Song, and Tempo Signals on the master side, while write layers of if statements in the slave side to make sure it plays ONLY when according signals are received.</li>
+<li>Write your sensors' code in your master side to change the behavior of the systems based on reading from sensors.</li>
+<li>Employ it online: create a separate webpage that has buttons that links to different states of the message. e.g send a GET request to ip<sub>address</sub>/T/L to play Twinkle Twinkle little star in a sLow tempo.</li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-orgdde15b2">
+<h2 id="orgdde15b2">Conclusion</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-org9e09bd0">
+<h2 id="org9e09bd0">1) Buy the materials, here's the list</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Item</th>
+<th scope="col" class="org-left">Cost</th>
+<th scope="col" class="org-left">Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">blah</td>
+<td class="org-left">blah</td>
+<td class="org-left">blah</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-orgcfa620e">
+<h2 id="orgcfa620e">2) Wiring, here is the schematic</h2>
+<p>
+We will be using a buzzer so this component should be connected to this pin because blah blah blah&#x2026;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org86f2b2b">
+<h2 id="org86f2b2b">3) Test Coding: Setting up servo, buzzer, ultrasonic and touch sensors</h2>
+<p>
+Something like pinMode(), then command code such as servo1.(angle) or detection code like pin.read('High')
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org88f5d09">
+<h2 id="org88f5d09">4) Composing your music (how does servo and buzzer work)</h2>
+<p>
+Lin should write this.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgd84d335">
+<h2 id="orgd84d335">5) Get two microcontroller to communicate with each other</h2>
+<p>
+Using Serial communication, there is a master and there is a slave. The master send a 'R' signal before it play so that they are synchornized&#x2026;&#x2026;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org0d8d429">
+<h2 id="org0d8d429">6) WIFI connection</h2>
+<p>
+We use tutorial from this website <a href="https://github.com/waterbottels/EE183DALab2/blob/master/README.md">link</a> to set up WIFI locally. If we want it to go online, we need to set up port forwarding in our router: here's the instruction blahbalhblah
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org341a491">
+<h2 id="org341a491">7) Conclusion (putting everything together)</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.20,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
 </html>
