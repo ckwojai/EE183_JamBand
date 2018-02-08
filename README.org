@@ -4,6 +4,7 @@
   - Check out our [[https://ckwojai.github.io/EE183_JamBand/control.html][awesome user interface]]
   - Check out our complete code: [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
   - Check out our more detailed README below
+* idk
 # * To Recreate our project
 # ** 1) Buy the materials, here's the list
 #    | Item | Cost | Link |
@@ -43,12 +44,12 @@
 #      5) Include any relevant links to webpages
 #      6) Upload a .pdf by <2018-02-08 Thu 16:00>
 # * Lab Specification
-** Making Noise
-  - At least two different instruments each driven by separate microcontroller
-** Sensing environment and users
-  - At least two different kinds of sensors
-** Multi-Robot collaboration
-   - Sensors measurements need to be used for instruments to collaborate explicitly with each other
-** User Interface
+# ** Making Noise
+#   - At least two different instruments each driven by separate microcontroller
+# ** Sensing environment and users
+#   - At least two different kinds of sensors
+# ** Multi-Robot collaboration
+#    - Sensors measurements need to be used for instruments to collaborate explicitly with each other
+# ** User Interface
    - User interaction through a web-based user interface, hosted on microcontroller or on a separate server with links to command the microcontrollers
    - Free to choose options to provide the users (start/stop or select song or set tempo, full control programming the music)
