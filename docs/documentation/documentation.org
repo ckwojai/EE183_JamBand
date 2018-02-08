@@ -11,10 +11,8 @@
 #+REVEAL_THEME: night
 #+REVEAL_HLEVEL: 1
 #+REVEAL_EXTRA_CSS: documentation.css
-
 #+TITLE: JamBand
 #+AUTHOR: Amir, Angel, Lin, Wilson
-
 * Introduction
   Our goal was to build a musical "jam band" driven by two ESP8266 microcontrollers, utilizing sensors and actuators. We have an autonomous mode which gives the user an option between two songs, *Row Row Your Boat* and *Twinkle Twinkle*. The user can also decide the tempo of the song in the autonomous mode. The Human controlled mode allows a user to change the songs using a touch sensor and vary the speed of the song with an ultrasonic sensor. The user is given instructions on the website on how to modulate the jam band.
 * What is this?
