@@ -173,7 +173,7 @@
 ** Part 2
 ** Part 3
 * Communication between two micro-controllers
-  Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the same of simplicity, we are using Serial Communication. 
+  Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the sake of simplicity, we are using Serial Communication. 
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** Wire connection
    First, connects Tx to Rx from one MCUs and and vice versa for the other. Then, a simple code can be used to test if the channel is working. Note that here we are treating the Drumsticks side as a master (sender) and the Buzzer side as a slave (receiver).
@@ -256,7 +256,8 @@
    3) Go to [[http://www.whatsmyip.org]] to find IP address for your router
    4) In the router port forwarding page, fill the IP address you found and the port you set in your Arduino code (80 in our case).
 ** Try it out!
-   If everything sets up correctly, go to the IP address of your router from anywhere whether you are using WIFI or cellular data. You should be able to see that control page of our jamband. You can make your own webpage with cool styles such as this one [[https://ckwojai.github.io/EE183_JamBand/control.html][here]].
+   If everything sets up correctly, go to the IP address of your router from anywhere whether you are using WIFI or cellular data. You should be able to see that control page of our jamband. 
+   Moreover, you can make your own webpage with cool styles such as this one [[https://ckwojai.github.io/EE183_JamBand/control.html][here]].
 * Summary 
   Now that you have learned all the essential knowledge in creating your own project, it's up to you to put everything together. If you want to recreate the project we did, follow the steps below:
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
