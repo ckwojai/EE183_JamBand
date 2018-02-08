@@ -157,6 +157,6 @@ which directly links to your robots controls.
    :CUSTOM_ID: demonstrations
    :END:
    Below is a video demonstrating the JamBand. Sorry about the watermark.
-   https://www.youtube.com/embed/MEb7xeRVj90
+   #+HTML: <iframe width="700" height="400" frameborder="0" src="https://www.youtube.com/embed/MEb7xeRVj90" allowfullscreen></iframe>
 
 
