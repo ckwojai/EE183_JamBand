@@ -17,7 +17,7 @@
   Our goal was to build a musical "jam band" driven by two ESP8266 microcontrollers, utilizing sensors and actuators. We have an autonomous mode which gives the user an option between two songs, *Row Row Your Boat* and *Twinkle Twinkle*. The user can also decide the tempo of the song in the autonomous mode. The Human controlled mode allows a user to change the songs using a touch sensor and vary the speed of the song with an ultrasonic sensor. The user is given instructions on the website on how to modulate the jam band.
 * What is this?
   Watch our video demo:
-  #+REVEAL_HTML: <iframe width="700" height="400" frameborder="0" src="https://www.youtube.com/embed/MEb7xeRVj90" allowfullscreen></iframe>
+  #+REVEAL_HTML: <iframe width="700" height="400" frameborder="0" src="https://www.youtube.com/embed/FkhUbZ_ER8M" allowfullscreen></iframe>
   Wanna create your own? Right on! This is a step-by-step guide to help you recreate our project. All the code can be found in my [[https://github.com/ckwojai/EE183_JamBand/][Github Repo]]. Follow along!!!
 * Bill of Materials  
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>

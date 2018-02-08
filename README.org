@@ -1,4 +1,4 @@
-#+OPTIONS: /n:t
+#+OPTIONS: \n:t
 * [[https://ckwojai.github.io/EE183_JamBand/index.html][Landing Page]]
   - Check out our [[https://ckwojai.github.io/EE183_JamBand/documentation/documentation.html][step-by-step guide]]
   - Check out our [[https://ckwojai.github.io/EE183_JamBand/control.html][awesome user interface]]
@@ -23,19 +23,19 @@ on how to modulate the jam band.
    :CUSTOM_ID: bill-of-materials
    :END:
 
-| *QTY*   | *Part Number*   | *Part Name*                | *Description*                        | *Spec Sheet*                                                                                                                                |
-|---------+-----------------+----------------------------+--------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------|
-| 1       | FS90            | Micro Servo 9g             | Small blue, used for tapping         | http://www.mantech.co.za/Datasheets/Products/FITEC\_FS90.pdf                                                                                |
-| 1       | Accessory-187   | Jog Type Touch Sensor      | Square blue, 3 prong. Senses touch   | https://www.amazon.com/Sensor-Capacitive-Arduino-Atomic-Market/dp/B00WH7O00U                                                                |
-| 1       | HC - SR04       | Ultrasonic Raning Module   | looks like robot eyes                | http://www.micropik.com/PDF/HCSR04.pdf                                                                                                      |
-| 2       | 12E             | ESP 8266MOD                | Microcontroller                      | http://amazingrobots.net/2017-2/resources/nodemcu\_pinout/                                                                                  |
-| 1       | 571CK           | Chop Stick                 | A wooden Chopstick                   | https://docs.google.com/viewer?url=patentimages.storage.googleapis.com/pdfs/US20090026782.pdf                                               |
-| 1       | MCBB400         | Breadboard                 | For holding components               | https://www.melopero.com/datasheets/Breadboard.pdf                                                                                          |
-| 1       | 1956725         | PCB Mini Buzzer            | a small black speaker                | https://www.jameco.com/z/SV8-Velleman-Audio-Indicator-and-Alerts-Buzzer-8mA-12-Volt-Solder-Through-Hole\_1956725.html                       |
-| 1       | RS002C          | Wire Jumper Kit            | Wires for Connecting components      | https://www.jameco.com/z/RS002C-Dagu-HiTech-Electronic-Wire-Jumper-Kit-140-Pieces-100-Male-Cables-40-Female-Cables-5-Colors\_2150467.html   |
-| 1       | OOBG            | 330 ohm + 5% resistor      | a resistor                           | https://www.sparkfun.com/products/11507                                                                                                     |
-| 1       | 12E             | Motor Shield               | Housing for ESP 8266                 | https://hackaday.io/project/8856-incubator-controller/log/29291-node-mcu-motor-shield                                                       |
-| 2       | LP-503562       | 3.7v Battery               | Powers the robot                     | https://www.adafruit.com/product/258                                                                                                        |
+| *QTY* | *Part Number* | *Part Name*              | *Description*                      | *Spec Sheet* |
+|-------+---------------+--------------------------+------------------------------------+--------------|
+|     1 | FS90          | Micro Servo 9g           | Small blue, used for tapping       | [[http://www.mantech.co.za/Datasheets/Products/FITEC\_FS90.pdf][link]]         |
+|     1 | Accessory-187 | Jog Type Touch Sensor    | Square blue, 3 prong. Senses touch | [[https://www.amazon.com/Sensor-Capacitive-Arduino-Atomic-Market/dp/B00WH7O00U][link]]         |
+|     1 | HC - SR04     | Ultrasonic Raning Module | looks like robot eyes              | [[http://www.micropik.com/PDF/HCSR04.pdf][link]]         |
+|     2 | 12E           | ESP 8266MOD              | Microcontroller                    | [[http://amazingrobots.net/2017-2/resources/nodemcu\_pinout/][link]]         |
+|     1 | 571CK         | Chop Stick               | A wooden Chopstick                 | [[https://docs.google.com/viewer?url=patentimages.storage.googleapis.com/pdfs/US20090026782.pdf][link]]         |
+|     1 | MCBB400       | Breadboard               | For holding components             | [[https://www.melopero.com/datasheets/Breadboard.pdf][link]]         |
+|     1 | 1956725       | PCB Mini Buzzer          | a small black speaker              | [[https://www.jameco.com/z/SV8-Velleman-Audio-Indicator-and-Alerts-Buzzer-8mA-12-Volt-Solder-Through-Hole\_1956725.html][link]]         |
+|     1 | RS002C        | Wire Jumper Kit          | Wires for Connecting components    | [[https://www.jameco.com/z/RS002C-Dagu-HiTech-Electronic-Wire-Jumper-Kit-140-Pieces-100-Male-Cables-40-Female-Cables-5-Colors\_2150467.html][link]]         |
+|     1 | OOBG          | 330 ohm + 5% resistor    | a resistor                         | [[https://www.sparkfun.com/products/11507][link]]         |
+|     1 | 12E           | Motor Shield             | Housing for ESP 8266               | [[https://hackaday.io/project/8856-incubator-controller/log/29291-node-mcu-motor-shield][link]]         |
+|     2 | LP-503562     | 3.7v Battery             | Powers the robot                   | [[https://www.adafruit.com/product/258][link]]         |
 
 * Setup
    :PROPERTIES:
@@ -120,8 +120,8 @@ power most of the devices.
 [[https://github.com/waterbottels/EE183DALab2/blob/master/mechanics.png]]
 
 [[https://github.com/waterbottels/EE183DALab2/blob/master/schematic.png]]
-** Step 4: Code The code can be found here:
-   [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
+** Step 4: Code 
+   The code can be found here [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
    [[https://github.com/ckwojai/EE183_JamBand/tree/master/]]
 
 * Multi-Robot Collaboration
@@ -157,7 +157,7 @@ which directly links to your robots controls.
    :PROPERTIES:
    :CUSTOM_ID: demonstrations
    :END:
-   Here is a [[https://www.youtube.com/watch?feature=player_embedded&v=DO1NRDxI4-o][video demonstration]] of JamBand. Sorry about the watermark.
+   Here is a [[https://www.youtube.com/watch?v=FkhUbZ_ER8M][video demonstration]] of JamBand. Sorry about the watermark.
 
 
 
