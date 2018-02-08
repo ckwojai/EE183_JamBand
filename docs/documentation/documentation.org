@@ -167,9 +167,21 @@
    The above code should be pretty self-explanatory.
 * Composing your music with Servo and Buzzer
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
-** Part 1
-** Part 2
-** Part 3
+** Composing tunes for the buzzer
+   Define each note of one octave in programming language with different frequencies, then compose your song according to a note chart of your song. As shown below,
+   [[./img/compose.png]]
+** Composing beats for the servo
+   1) Determine the starting angle and the ending angle for the servo
+   2) Program the “gap” between two beats, different sizes of “gap” plays different styles of beats.
+   3) We fixed the ending angle so that it always ended up with the same position when it hits the “drum”.
+   4) Two ways to control the "gap" size: changing the starting angle
+   5) Adjusting delay time gives the servo less time to reach its orientation before its next assigned operational state (which in turns change the ending angle).
+** Tunes in harmony
+   1) Goal: Servo always hits its drum at the same moment the buzzer starts playing a new note.
+   2) Buzzer: easy to control; Servo: harder to control
+   3) So code the Servo first to make it sound like your song, then add the buzzer code under the SAME delay
+   4) Write them in the same mircocontroller first, parametrize the common tempo variable k
+   5) Composing this way, your drummer and trumpeter will always play under the same tempo in the perfect harmony
 * Communication between two micro-controllers
   Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the sake of simplicity, we are using Serial Communication. 
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
