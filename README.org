@@ -156,8 +156,9 @@ which directly links to your robots controls.
    :PROPERTIES:
    :CUSTOM_ID: demonstrations
    :END:
-   Below is a video demonstrating the JamBand. Sorry about the watermark.
-[![Everything Is AWESOME](https://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")
+   Here is a [[https://www.youtube.com/watch?feature=player_embedded&v=DO1NRDxI4-o][video demonstration]] of JamBand. Sorry about the watermark.
+
+
 
 
 
