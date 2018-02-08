@@ -4,45 +4,45 @@
   - Check out our [[https://ckwojai.github.io/EE183_JamBand/control.html][awesome user interface]]
   - Check out our complete code: [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
   - Check out our more detailed README below
-* To Recreate our project
-** 1) Buy the materials, here's the list
-   | Item | Cost | Link |
-   |------+------+------|
-   | blah | blah | blah |
-** 2) Wiring, here is the schematic
-   We will be using a buzzer so this component should be connected to this pin because blah blah blah...
-** 3) Test Coding: Setting up servo, buzzer, ultrasonic and touch sensors
-   Something like pinMode(), then command code such as servo1.(angle) or detection code like pin.read('High')
-** 4) Composing your music (how does servo and buzzer work)
-   Lin should write this.
-** 5) Get two microcontroller to communicate with each other
-   Using Serial communication, there is a master and there is a slave. The master send a 'R' signal before it play so that they are synchornized......
-** 6) WIFI connection
-   We use tutorial from this website [[https://github.com/waterbottels/EE183DALab2/blob/master/README.md][link]] to set up WIFI locally. If we want it to go online, we need to set up port forwarding in our router: here's the instruction blahbalhblah
-** 7) Conclusion (putting everythign together)
-   idkman
+# * To Recreate our project
+# ** 1) Buy the materials, here's the list
+#    | Item | Cost | Link |
+#    |------+------+------|
+#    | blah | blah | blah |
+# ** 2) Wiring, here is the schematic
+#    We will be using a buzzer so this component should be connected to this pin because blah blah blah...
+# ** 3) Test Coding: Setting up servo, buzzer, ultrasonic and touch sensors
+#    Something like pinMode(), then command code such as servo1.(angle) or detection code like pin.read('High')
+# ** 4) Composing your music (how does servo and buzzer work)
+#    Lin should write this.
+# ** 5) Get two microcontroller to communicate with each other
+#    Using Serial communication, there is a master and there is a slave. The master send a 'R' signal before it play so that they are synchornized......
+# ** 6) WIFI connection
+#    We use tutorial from this website [[https://github.com/waterbottels/EE183DALab2/blob/master/README.md][link]] to set up WIFI locally. If we want it to go online, we need to set up port forwarding in our router: here's the instruction blahbalhblah
+# ** 7) Conclusion (putting everythign together)
+#    idkman
 
-* OUR LANDING PAGE [[https://ckwojai.github.io/EE183_JamBand/]]
-* Deliverables
-** Team
-  - [ ] Markdown / web content documenting and demonstrating your band
-  - [ ] Information including bill of materials, wiring schematics, mechanical drawings, well-documented code, etc. necessary to recreate the system
-  - [ ] Describe the construction and operation of the instruments using pictures, videos, and text descriptions.
-  - [ ] Webpage documenting and demonstrating your band and its constituent instruments
-    + Details and videos of various subsystems, and instructions for user interaction
-  - [ ] Generate figures demonstrating relationship between the sensed quantities and the sensor output
-    + graph, a timing diagram, or a table of values, etc.
-  - [ ] Demonstration of Multi-Robot collaboration (instruments performing in harmony)
-  - [ ] Record a live performance and include in the documentation
-** Individual
-   - [ ] Specific individual contributions into an academic poster
-     1) key methods and results
-     2) How each element works
-     3) Detail design process and any design decision
-     4) Potential alternatives and areas for further development
-     5) Include any relevant links to webpages
-     6) Upload a .pdf by <2018-02-08 Thu 16:00>
-* Lab Specification
+# * OUR LANDING PAGE [[https://ckwojai.github.io/EE183_JamBand/]]
+# * Deliverables
+# ** Team
+#   - [ ] Markdown / web content documenting and demonstrating your band
+#   - [ ] Information including bill of materials, wiring schematics, mechanical drawings, well-documented code, etc. necessary to recreate the system
+#   - [ ] Describe the construction and operation of the instruments using pictures, videos, and text descriptions.
+#   - [ ] Webpage documenting and demonstrating your band and its constituent instruments
+#     + Details and videos of various subsystems, and instructions for user interaction
+#   - [ ] Generate figures demonstrating relationship between the sensed quantities and the sensor output
+#     + graph, a timing diagram, or a table of values, etc.
+#   - [ ] Demonstration of Multi-Robot collaboration (instruments performing in harmony)
+#   - [ ] Record a live performance and include in the documentation
+# ** Individual
+#    - [ ] Specific individual contributions into an academic poster
+#      1) key methods and results
+#      2) How each element works
+#      3) Detail design process and any design decision
+#      4) Potential alternatives and areas for further development
+#      5) Include any relevant links to webpages
+#      6) Upload a .pdf by <2018-02-08 Thu 16:00>
+# * Lab Specification
 ** Making Noise
   - At least two different instruments each driven by separate microcontroller
 ** Sensing environment and users
