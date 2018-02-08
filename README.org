@@ -1,8 +1,9 @@
 #+OPTIONS: /n:t
 * [[https://ckwojai.github.io/EE183_JamBand/index.html][Landing Page]]
   - Check out our [[https://ckwojai.github.io/EE183_JamBand/documentation/documentation.html][step-by-step guide]]
-  - Check out our [[https://ckwojai.github.io/EE183_JamBand/control.html][wonderful user interface]]
-
+  - Check out our [[https://ckwojai.github.io/EE183_JamBand/control.html][awesome user interface]]
+  - Check out our complete code: [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
+  - Check out our more detailed README below
 * To Recreate our project
 ** 1) Buy the materials, here's the list
    | Item | Cost | Link |
