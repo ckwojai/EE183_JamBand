@@ -15,10 +15,11 @@
 #+TITLE: JamBand
 #+AUTHOR: Amir, Angel, Lin, Wilson
 #+EMAIL: ckwojai@ucla.edu
+
 * Introduction
   Our goal was to build a musical "jam band" driven by two ESP8266 microcontrollers, utilizing sensors and actuators. We have an autonomous mode which gives the user an option between two songs, *Row Row Your Boat* and *Twinkle Twinkle*. The user can also decide the tempo of the song in the autonomous mode. The Human controlled mode allows a user to change the songs using a touch sensor and vary the speed of the song with an ultrasonic sensor. The user is given instructions on the website on how to modulate the jam band.
 * What is this?
-  This is a guide to go through our project step by step. Follow along!!!
+  This is a guide to go through our project step by step. All the code are extracted from my Follow along!!!
 * Bill of Materials  
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** BOM 1
@@ -154,7 +155,6 @@
    #+END_SRC
    The above code should be pretty self-explanatory.
 * Composing your music with Servo and Buzzer
-  Lin should write this.
 ** Part 1
 ** Part 2
 ** Part 3
@@ -199,7 +199,7 @@
    #+END_SRC   
    Update this code to your two MCUs, you should see the 'L' and 'H' in the Serial Monitor on the sender side while the LED on the receiver side should toggle ON and OFF in a interval of 2 seconds.
 
-* WIFI connection
+* Wireless connection
   Time to connect your controller to the web so that users can control your band through WIFI.
   For Access-Point WIFI setup, please reference to this online [[http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/][tutorial]].
 ** Employ your device to the World-Wide Web
@@ -247,20 +247,7 @@
   2) Serial Communication: Send Ready, Song, and Tempo Signals on the master side, while write layers of if statements in the slave side to make sure it plays ONLY when according signals are received.
   3) Write your sensors' code in your master side to change the behavior of the systems based on reading from sensors.
   4) Employ it online: create a separate webpage that has buttons that links to different states of the message. e.g send a GET request to ip_address/T/L to play Twinkle Twinkle little star in a sLow tempo.
+  5) The complete code can be found in the root directory of my [[https://github.com/ckwojai/EE183_JamBand/tree/master/code/test][Github Page]]: buzzer.ino and servo.ino.
 * Conclusion
+  In this tutorial, we guided your through a detail setup of our project, including bill of materials, circuit schematics, code for controlling all the components, WIFI setup. Based on what you have learned, you should have no problem recreating our project, or even build up on what we had and create your own project. Lastly, we would like to thank our EE183 Professor Mehta for this wonderful project.
   
-* 1) Buy the materials, here's the list
-   | Item | Cost | Link |
-   |------+------+------|
-   | blah | blah | blah |
-* 2) Wiring, here is the schematic
-   We will be using a buzzer so this component should be connected to this pin because blah blah blah...
-* 3) Test Coding: Setting up servo, buzzer, ultrasonic and touch sensors
-   Something like pinMode(), then command code such as servo1.(angle) or detection code like pin.read('High')
-* 4) Composing your music (how does servo and buzzer work)
-   Lin should write this.
-* 5) Get two microcontroller to communicate with each other
-   Using Serial communication, there is a master and there is a slave. The master send a 'R' signal before it play so that they are synchornized......
-* 6) WIFI connection
-  We use tutorial from this website [[https://github.com/waterbottels/EE183DALab2/blob/master/README.md][link]] to set up WIFI locally. If we want it to go online, we need to set up port forwarding in our router: here's the instruction blahbalhblah
-* 7) Conclusion (putting everything together)

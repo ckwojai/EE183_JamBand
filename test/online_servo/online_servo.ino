@@ -1,4 +1,10 @@
 #include <Servo.h>
+#include <ESP8266WiFi.h>
+// WIFI settings
+const char* ssid = "102-2.4";
+const char* password = "andrewwilliam";
+const char* host = "192.168.0.24"; 
+WiFiServer server(80); //Initialize the server on Port 80
 // GLOBAL VARIABLEs
 Servo servo1;
 bool R = false;
@@ -195,8 +201,76 @@ void toggleSong(){
     Song = 'T';
   }
 }
+
+void checkConnection(){
+  //Looking under the hood
+  WiFiClient client  = server.available();
+  //Looking under the hood 
+  //Read what the browser has sent into a String class and print the request to the monitor
+  String request = client.readStringUntil('\r'); 
+  // Handle the Request
+  if (request.indexOf("/T/L") != -1){ 
+    Song ='T';
+    Speed = 'L';
+    } else if (request.indexOf("/T/H") != -1) { 
+    Song = 'T';
+    Speed = 'H';
+    } else if (request.indexOf("/W/L") != -1) { 
+    Song = 'W';
+    Speed = 'L';
+    } else if (request.indexOf("/W/H") != -1) { 
+    Song = 'W';
+    Speed = 'H';
+    } else {
+      int distance = ultra_dist();
+    Serial.print(distance);
+    if (distance > 5) {
+      Speed = 'L';
+    } else if (distance <5) {
+      Speed = 'H';
+  }
+    }
+  // Prepare the HTML document to respond and add buttons:
+         String s = "HTTP/1.1 200 OK\r\n";
+         s += "Content-Type: text/html\r\n\r\n";
+         s += "<!DOCTYPE HTML>\r\n<html>\r\n";
+         s += "<br><input type=\"button\" name=\"b1\" value=\"TL\"";
+         s += " onclick=\"location.href='/T/L'\">";
+         s += "<br><br><br>";
+         s += "<br><input type=\"button\" name=\"b1\" value=\"TH\"";
+         s += " onclick=\"location.href='/T/H'\">";
+          s += "<br><input type=\"button\" name=\"b1\" value=\"WL\"";
+         s += " onclick=\"location.href='/W/L'\">";
+         s += "<br><br><br>";
+         s += "<br><input type=\"button\" name=\"b1\" value=\"WH\"";
+         s += " onclick=\"location.href='/W/H'\">";
+         s += "</html>\n";
+         //Serve the HTML document to the browser.
+         client.flush(); //clear previous info in the stream
+         client.print(s); // Send the response to the client
+         delay(1);
+         Serial.println("Client disonnected"); //Looking under the hood
+}
 void setup() {
   Serial.begin(115200);
+  // WIFI SETUP
+  WiFi.mode(WIFI_STA); //Our ESP8266-12E is an AccessPoint 
+  Serial.println();
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+  // Start the server
+  server.begin();
+  Serial.println("Server started");
+  // Print the IP address
+  Serial.println(WiFi.localIP());  
   servo1.attach(D0);  
   servo1.write(30); // lift the stick up and prepare to hit, smaller number = lift; higher number = hit.
   // Ultrasonic 
@@ -206,14 +280,8 @@ void setup() {
 }
 
 void loop() {
+  checkConnection();
   
-  int distance = ultra_dist();
-  Serial.print(distance);
-  if (distance > 5) {
-    Speed = 'L';
-  } else if (distance <5) {
-    Speed = 'H';
-  }
   int touchValue = digitalRead(touchPin);
   if (touchValue == HIGH) {
       // Serial.println("TOUCHED");
