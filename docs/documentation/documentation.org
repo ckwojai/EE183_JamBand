@@ -4,22 +4,23 @@
 #+OPTIONS: reveal_width:1200 reveal_height:800
 #+OPTIONS: toc:0
 #+OPTIONS: org-html-indent:nil
+#+OPTIONS: \n:t
 #+REVEAL_MARGIN: 0.2
 #+REVEAL_MIN_SCALE: 0.5
 #+REVEAL_MAX_SCALE: 2.5
-#+REVEAL_TRANS: none
 #+REVEAL_THEME: night
 #+REVEAL_HLEVEL: 1
-#+REVEAL_EXTRA_CSS: ./presentation.css
+#+REVEAL_EXTRA_CSS: documentation.css
 
 #+TITLE: JamBand
 #+AUTHOR: Amir, Angel, Lin, Wilson
-#+EMAIL: ckwojai@ucla.edu
 
 * Introduction
   Our goal was to build a musical "jam band" driven by two ESP8266 microcontrollers, utilizing sensors and actuators. We have an autonomous mode which gives the user an option between two songs, *Row Row Your Boat* and *Twinkle Twinkle*. The user can also decide the tempo of the song in the autonomous mode. The Human controlled mode allows a user to change the songs using a touch sensor and vary the speed of the song with an ultrasonic sensor. The user is given instructions on the website on how to modulate the jam band.
 * What is this?
-  This is a guide to go through our project step by step. All the code are extracted from my Follow along!!!
+  Watch our video demo:
+  #+REVEAL_HTML: <iframe width="700" height="400" frameborder="0" src="https://www.youtube.com/embed/MEb7xeRVj90" allowfullscreen></iframe>
+  Wanna create your own? Right on! This is a step-by-step guide to help you recreate our project. All the code can be found in my [[https://github.com/ckwojai/EE183_JamBand/][Github Repo]]. Follow along!!!
 * Bill of Materials  
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** BOM 1
@@ -74,7 +75,8 @@
   Before we get into some coding, let's make sure your have Arduino setup. Here is a quick setup guide from [[http://www.instructables.com/id/Programming-the-ESP8266-12E-using-Arduino-software/][Instructables]].
   Moreover, we will need to install drivers for our ESP to connect with our computer. Drivers for different OSs can be found [[https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers][here]].
 * Time to Code
-  In the following, we will guide your through some very basic code to make our servo, buzzer, ultrasonic, touch sensors to work. We can then build up from our basic code. All the code can be found in this [[https://github.com/ckwojai/EE183_JamBand/tree/master/code/test][Github folder]].
+  In the following, we will guide your through some very basic code to make our servo, buzzer, ultrasonic, touch sensors to work. We can then build up from our basic code. All the code can be found in this [[https://github.com/ckwojai/EE183_JamBand/tree/master/test/basic/][Github folder]].
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** TestCode: Servo
    #+BEGIN_SRC C
      #include <Servo.h>
@@ -93,19 +95,30 @@
 
 ** TestCode: Buzzer
    #+BEGIN_SRC C
-     #include <Servo.h>
-     Servo servo1;
-     void setup() {
-       servo1.attach(16);
-       void loop() {
-	 servo1.write(90);
-	 delay(500);
-	 servo1.write(0);
-	 delay(500);
+     const int buzzerPin = 15 ; //Buzzer Input
+     int duration = 280; //long duration for the buzzer note
+     int frequency(char note) {
+       // Input a note character (a-g), and returns the corresponding frequency in Hz for the tone() function.
+       char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' }; // key
+       int frequencies[] = {262, 294, 330, 349, 392, 440, 494, 523}; // value pari
+       // Search and find the corresponding frequency
+       for (i = 0; i < numNotes; i++) { // Step through the notes
+	 if (names[i] == note) {
+	   return(frequencies[i]);
+	 }
        }
+       return(0);
      }
+     void setup() {
+       pinMode(speakerPin, OUTPUT);
+       Serial.begin(115200);
+     }
+     void loop() {
+       tone(buzzerPin, frequency('c'), duration); // Play note c (262 Hz) for 280ms.
+       delay(1000);
+     } 
    #+END_SRC
-   In void setup, we attach the global Servo object servo1 to whatever signal pin (orange) your servo is connected to (Brown=GND; Red=VCC; Orange=Signal). In loop, we basically set the angle for the servo to got to and a delay right after to give it time to reach such orientation.
+   The above code should be self-explanatory.
 ** TestCode: Ultrasonic Sensor
    #+BEGIN_SRC C
      const int trigPin = D5;
@@ -155,11 +168,13 @@
    #+END_SRC
    The above code should be pretty self-explanatory.
 * Composing your music with Servo and Buzzer
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** Part 1
 ** Part 2
 ** Part 3
 * Communication between two micro-controllers
   Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the same of simplicity, we are using Serial Communication. 
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** Wire connection
    First, connects Tx to Rx from one MCUs and and vice versa for the other. Then, a simple code can be used to test if the channel is working. Note that here we are treating the Drumsticks side as a master (sender) and the Buzzer side as a slave (receiver).
 ** Serial Communication: Sender side
@@ -202,6 +217,7 @@
 * Wireless connection
   Time to connect your controller to the web so that users can control your band through WIFI.
   For Access-Point WIFI setup, please reference to this online [[http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/][tutorial]].
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** Employ your device to the World-Wide Web
    Please complete the tutorials linked in the previous slide before attempting this setup. In the online tutorial, you successful create a WIFI access point at your ESP8266 device; however, users have to connect to the WIFI you created in order to control the band. Quite inconvenient right? Indeed, we can actually do a simple port forward using our home WIFI to get our project online.
 ** ESP as a workstation: setup
@@ -234,20 +250,25 @@
    The code in loop() should be exactly the same as in the [[http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/][tutorial]].
    Essentially what we did here is connect our ESP to our home WIFI which is CONNECTED to the Internet; instead of treating ESP as a WIFI access point. Connecting to our home WIFI is a crucial step in getting our project online.
 ** Port Forwarding
-   If everything works well, you should now be able to connect to the control page at 192.108.4.1 given you are connected to your home WIFI. To get it online, we need to do a port forwarding in our router setting.
+   If everything works well, you should now be able to connect to the control page at 192.168.4.1 given you are connected to your home WIFI. To get it online, we need to do a port forwarding in our router setting.
    1) Go to 192.168.0.1 (or whatever your router setting page is)
    2) Find port forwarding, look for two options to fill in: IP address and port 
    3) Go to [[http://www.whatsmyip.org]] to find IP address for your router
    4) In the router port forwarding page, fill the IP address you found and the port you set in your Arduino code (80 in our case).
 ** Try it out!
-   If everything sets up correctly, go to the IP address of your router from anywhere whether you are using WIFI or cellular data. You should be able to see that control page of our jamband. Yay!
+   If everything sets up correctly, go to the IP address of your router from anywhere whether you are using WIFI or cellular data. You should be able to see that control page of our jamband. You can make your own webpage with cool styles such as this one [[https://ckwojai.github.io/EE183_JamBand/control.html][here]].
 * Summary 
-  Now that you have learned all the essential knowledge in creating your own project, it's up to you to put everything together. If you want to recreate  the project we did, follow the steps below:
+  Now that you have learned all the essential knowledge in creating your own project, it's up to you to put everything together. If you want to recreate the project we did, follow the steps below:
+  #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
+** Steps to recreate our project
   1) Compose two songs each having two tempos, make sure the two instruments play in harmony.
   2) Serial Communication: Send Ready, Song, and Tempo Signals on the master side, while write layers of if statements in the slave side to make sure it plays ONLY when according signals are received.
   3) Write your sensors' code in your master side to change the behavior of the systems based on reading from sensors.
   4) Employ it online: create a separate webpage that has buttons that links to different states of the message. e.g send a GET request to ip_address/T/L to play Twinkle Twinkle little star in a sLow tempo.
-  5) The complete code can be found in the root directory of my [[https://github.com/ckwojai/EE183_JamBand/tree/master/code/test][Github Page]]: buzzer.ino and servo.ino.
+  5) The complete code can be found in the root directory of my Githbu page: [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
 * Conclusion
-  In this tutorial, we guided your through a detail setup of our project, including bill of materials, circuit schematics, code for controlling all the components, WIFI setup. Based on what you have learned, you should have no problem recreating our project, or even build up on what we had and create your own project. Lastly, we would like to thank our EE183 Professor Mehta for this wonderful project.
+  In this tutorial, we guided your through a detail setup of our project, including bill of materials, circuit schematics, code for controlling all the components, and Wireless setup. Based on what you have learned, you should have no problem recreating our project, or even build up on what we had and create your own project. 
+
+  Last but not least, we would like to thank our EE183 Professor Mehta for this wonderful project.
+  [[https://ckwojai.github.io/EE183_JamBand/][Back to Home Page]]
   
