@@ -27,19 +27,19 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h1 class="title">JamBand</h1><h2 class="author">Amir, Angel, Lin, Wilson</h2><p class="date">Created: 2018-02-08 Thu 02:33</p>
+<section id="sec-title-slide"><h1 class="title">JamBand</h1><h2 class="author">Amir, Angel, Lin, Wilson</h2><p class="date">Created: 2018-02-08 Thu 15:38</p>
 </section>
 <section>
-<section id="slide-org9881404">
-<h2 id="org9881404">Introduction</h2>
+<section id="slide-orga5bd907">
+<h2 id="orga5bd907">Introduction</h2>
 <p>
 Our goal was to build a musical "jam band" driven by two ESP8266 microcontrollers, utilizing sensors and actuators. We have an autonomous mode which gives the user an option between two songs, <b>Row Row Your Boat</b> and <b>Twinkle Twinkle</b>. The user can also decide the tempo of the song in the autonomous mode. The Human controlled mode allows a user to change the songs using a touch sensor and vary the speed of the song with an ultrasonic sensor. The user is given instructions on the website on how to modulate the jam band.<br />
 </p>
 </section>
 </section>
 <section>
-<section id="slide-orgbdd4386">
-<h2 id="orgbdd4386">What is this?</h2>
+<section id="slide-orgdae4890">
+<h2 id="orgdae4890">What is this?</h2>
 <p>
 Watch our video demo:<br />
 </p>
@@ -50,12 +50,12 @@ Wanna create your own? Right on! This is a step-by-step guide to help you recrea
 </section>
 </section>
 <section>
-<section id="slide-orgbce03c7">
-<h2 id="orgbce03c7">Bill of Materials</h2>
+<section id="slide-orgaeac51c">
+<h2 id="orgaeac51c">Bill of Materials</h2>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-orgd9950a4">
-<h3 id="orgd9950a4">BOM 1</h3>
+<section id="slide-org6abd2d9">
+<h3 id="org6abd2d9">BOM 1</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -114,8 +114,8 @@ Wanna create your own? Right on! This is a step-by-step guide to help you recrea
 </tbody>
 </table>
 </section>
-<section id="slide-org82b999a">
-<h3 id="org82b999a">BOM 2</h3>
+<section id="slide-org5e2114f">
+<h3 id="org5e2114f">BOM 2</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -174,8 +174,8 @@ Wanna create your own? Right on! This is a step-by-step guide to help you recrea
 </tbody>
 </table>
 </section>
-<section id="slide-org3c46eec">
-<h3 id="org3c46eec">BOM 3</h3>
+<section id="slide-org63218c0">
+<h3 id="org63218c0">BOM 3</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -229,22 +229,22 @@ Wanna create your own? Right on! This is a step-by-step guide to help you recrea
 </section>
 </section>
 <section>
-<section id="slide-orgf10a289">
-<h2 id="orgf10a289">Instruments</h2>
+<section id="slide-org9d02927">
+<h2 id="org9d02927">Instruments</h2>
 <p>
 There are two instruments in our JamBand, a Chopstick Drumstick and a Buzzer. Each of them are connected to its own micro-controller.<br />
 </p>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-orgab89a35">
-<h3 id="orgab89a35">Servo: Chopstick DrumStick</h3>
+<section id="slide-orge17052b">
+<h3 id="orge17052b">Servo: Chopstick DrumStick</h3>
 <img src="https://camo.githubusercontent.com/3030f01bd39d331a8f57546d97d3c1b6166132e8/68747470733a2f2f696d616765732d6e612e73736c2d696d616765732d616d617a6f6e2e636f6d2f696d616765732f492f34312d614138743536754c2e5f53583334325f2e6a7067">
 <p>
 A servo is a rotary actuator that allows for precise control of angular position. In our project, a chopstick is attached to our servo arm to extend its length.<br />
 </p>
 </section>
-<section id="slide-org1704eb7">
-<h3 id="org1704eb7">Buzzer</h3>
+<section id="slide-org29efc80">
+<h3 id="org29efc80">Buzzer</h3>
 <img src="https://camo.githubusercontent.com/dfb04e3a4dd2851da87cb4cbe61be3b2114be12b/687474703a2f2f7777772e66757475726c65632e636f6d2f50696374757265732f33565049455a4f5043422e6a7067">
 <p>
 A buzzer is essentially a programmable device that makes noise. This will act as the main rhythm singer in our JamBand.<br />
@@ -253,19 +253,19 @@ A buzzer is essentially a programmable device that makes noise. This will act as
 </section>
 </section>
 <section>
-<section id="slide-org6c2e8de">
-<h2 id="org6c2e8de">PIN-OUT</h2>
+<section id="slide-orgfd090a8">
+<h2 id="orgfd090a8">PIN-OUT</h2>
 <p>
 Before we get into the actual wiring, let's take a look of the PIN-OUT of our ESP8266 &amp; Motor Shield that will be useful for wiring later on.<br />
 </p>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-org043a5bc">
-<h3 id="org043a5bc">PINOUT: ESP8266</h3>
+<section id="slide-orgc04dc58">
+<h3 id="orgc04dc58">PINOUT: ESP8266</h3>
 <img src="https://camo.githubusercontent.com/ac7999049d8fcafe57a4f2b68633bda3f13126ac/687474703a2f2f616d617a696e67726f626f74732e6e65742f77702d636f6e74656e742f75706c6f6164732f323031362f30362f6e6f64656d63755f70696e6f75742e706e67">
 </section>
-<section id="slide-org6749ffe">
-<h3 id="org6749ffe">PINOUT: Motor Shield</h3>
+<section id="slide-orgb82a64f">
+<h3 id="orgb82a64f">PINOUT: Motor Shield</h3>
 <img src="https://camo.githubusercontent.com/9b270f780bc03e7bb2ea9d578ba12295e4c68bef/687474703a2f2f616d617a696e67726f626f74732e6e65742f77702d636f6e74656e742f75706c6f6164732f323031362f30362f6d6f746f725f736869656c645f6469616772616d2e6a7067">
 <p>
 NOTE: Motor Shield is basically a board that makes wiring our ESP8266 easier. This is optional.<br />
@@ -273,23 +273,23 @@ NOTE: Motor Shield is basically a board that makes wiring our ESP8266 easier. Th
 </section>
 </section>
 <section>
-<section id="slide-orgc14bc5e">
-<h2 id="orgc14bc5e">Schematic</h2>
+<section id="slide-orgbd72da8">
+<h2 id="orgbd72da8">Schematic</h2>
 <p>
 The schematics of our circuits are shown below, follow the exact connection!<br />
 </p>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-orgeedbb67">
-<h3 id="orgeedbb67">Mechanical Drawing</h3>
+<section id="slide-orgbb6c726">
+<h3 id="orgbb6c726">Mechanical Drawing</h3>
 
 <div class="figure">
 <p><img src="./img/mechanics.png" alt="mechanics.png" /><br />
 </p>
 </div>
 </section>
-<section id="slide-org1d9fe41">
-<h3 id="org1d9fe41">Circuit Schematic</h3>
+<section id="slide-org3faa2b0">
+<h3 id="org3faa2b0">Circuit Schematic</h3>
 
 <div class="figure">
 <p><img src="./img/schematic.png" alt="schematic.png" /><br />
@@ -299,8 +299,8 @@ The schematics of our circuits are shown below, follow the exact connection!<br 
 </section>
 </section>
 <section>
-<section id="slide-org5983faa">
-<h2 id="org5983faa">Arduino Setup</h2>
+<section id="slide-orgdf7380b">
+<h2 id="orgdf7380b">Arduino Setup</h2>
 <p>
 Before we get into some coding, let's make sure your have Arduino setup. Here is a quick setup guide from <a href="http://www.instructables.com/id/Programming-the-ESP8266-12E-using-Arduino-software/">Instructables</a>.<br />
 Moreover, we will need to install drivers for our ESP to connect with our computer. Drivers for different OSs can be found <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">here</a>.<br />
@@ -308,15 +308,15 @@ Moreover, we will need to install drivers for our ESP to connect with our comput
 </section>
 </section>
 <section>
-<section id="slide-org7a618b0">
-<h2 id="org7a618b0">Time to Code</h2>
+<section id="slide-org5c9c2d9">
+<h2 id="org5c9c2d9">Time to Code</h2>
 <p>
 In the following, we will guide your through some very basic code to make our servo, buzzer, ultrasonic, touch sensors to work. We can then build up from our basic code. All the code can be found in this <a href="https://github.com/ckwojai/EE183_JamBand/tree/master/test/basic/">Github folder</a>.<br />
 </p>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-org9cec9a9">
-<h3 id="org9cec9a9">TestCode: Servo</h3>
+<section id="slide-orgdd9ab29">
+<h3 id="orgdd9ab29">TestCode: Servo</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C"><span style="color: #c397d8;">#include</span> <span style="color: #70c0b1;">&lt;Servo.h&gt;</span>
@@ -337,8 +337,8 @@ In void setup, we attach the global Servo object servo1 to whatever signal pin (
 </p>
 
 </section>
-<section id="slide-orga17c2e4">
-<h3 id="orga17c2e4">TestCode: Buzzer</h3>
+<section id="slide-org1138b76">
+<h3 id="org1138b76">TestCode: Buzzer</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C"><span style="color: #b9ca4a;">const</span> <span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">buzzerPin</span> = 15 ; <span style="color: #969896; font-style: italic;">//</span><span style="color: #969896; font-style: italic;">Buzzer Input</span>
@@ -369,8 +369,8 @@ In void setup, we attach the global Servo object servo1 to whatever signal pin (
 The above code should be self-explanatory.<br />
 </p>
 </section>
-<section id="slide-org3c9a269">
-<h3 id="org3c9a269">TestCode: Ultrasonic Sensor</h3>
+<section id="slide-orga9afaeb">
+<h3 id="orga9afaeb">TestCode: Ultrasonic Sensor</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C"><span style="color: #b9ca4a;">const</span> <span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">trigPin</span> = D5;
@@ -405,8 +405,8 @@ The above code should be self-explanatory.<br />
 The above code should be pretty self-explanatory.<br />
 </p>
 </section>
-<section id="slide-org0c26ecf">
-<h3 id="org0c26ecf">TestCode: Touch Sensor</h3>
+<section id="slide-org9379bf5">
+<h3 id="org9379bf5">TestCode: Touch Sensor</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C"><span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">touchPin</span> = D2;
@@ -431,56 +431,52 @@ The above code should be pretty self-explanatory.<br />
 </section>
 </section>
 <section>
-<section id="slide-orgedde83f">
-<h2 id="orgedde83f">Composing your music with Servo and Buzzer</h2>
+<section id="slide-org687f15e">
+<h2 id="org687f15e">Composing your music with Servo and Buzzer</h2>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-orgf7acc17">
-<h3 id="orgf7acc17">Composing tunes for the buzzer</h3>
+<section id="slide-orgd5bf1e5">
+<h3 id="orgd5bf1e5">Composing tunes for the buzzer</h3>
 <p>
-Define each note of one octave in programming language with different frequencies, then compose your song according to a note chart of your song. As shown below,<br />
+Define each note in frequency, then make sound with the buzzer using the corresponding frequency to match each note in the sheet. A duration is also added for the time length of each note. These two parameters are then pass to the Arduino function tone(frequency, duration) to let the buzzer make Sound.<br />
 <img src="./img/compose.png" alt="compose.png" /><br />
 </p>
 </section>
-<section id="slide-org67e84f0">
-<h3 id="org67e84f0">Composing beats for the servo</h3>
-<ol>
-<li>Determine the starting angle and the ending angle for the servo<br /></li>
-<li>Program the “gap” between two beats, different sizes of “gap” plays different styles of beats.<br /></li>
-<li>We fixed the ending angle so that it always ended up with the same position when it hits the “drum”.<br /></li>
-<li>Two ways to control the "gap" size: changing the starting angle<br /></li>
-<li>Adjusting delay time gives the servo less time to reach its orientation before its next assigned operational state (which in turns change the ending angle).<br /></li>
-
-</ol>
+<section id="slide-orge76b91c">
+<h3 id="orge76b91c">Composing beats for the servo</h3>
+<p>
+As for the servo, it's better to code this together with the buzzer for synchronization purpose. We first need to determine the starting and ending angle for the servo. Fix the ending angle because that's where the stick hit the drum every time. Then program the delay as shown below, assume the initial configuration of servo is at starting angle,<br />
+</p>
 </section>
-<section id="slide-orgb745fac">
-<h3 id="orgb745fac">Tunes in harmony</h3>
+<section id="slide-org1fcee21">
+<h3 id="org1fcee21">Tunes in harmony</h3>
 <ol>
-<li>Goal: Servo always hits its drum at the same moment the buzzer starts playing a new note.<br /></li>
-<li>Buzzer: easy to control; Servo: harder to control<br /></li>
-<li>So code the Servo first to make it sound like your song, then add the buzzer code under the SAME delay<br /></li>
-<li>Write them in the same mircocontroller first, parametrize the common tempo variable k<br /></li>
-<li>Composing this way, your drummer and trumpeter will always play under the same tempo in the perfect harmony<br /></li>
+<li>Set the servo to the ending angle<br /></li>
+<li>Apply some delay too allow time for the servo to go to the ending angle<br /></li>
+<li>After the above appropriate delay, this is when the stick hit the drum<br /></li>
+<li>Start playing one note of the buzzer music<br /></li>
+<li>Set the servo back to starting angle, and apply some delay for it to get there<br /></li>
+<li>Repeat the above steps<br /></li>
 
 </ol>
 </section>
 </section>
 <section>
-<section id="slide-org7aab09f">
-<h2 id="org7aab09f">Communication between two micro-controllers</h2>
+<section id="slide-orgb1f8e1c">
+<h2 id="orgb1f8e1c">Communication between two micro-controllers</h2>
 <p>
 Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the sake of simplicity, we are using Serial Communication.<br />
 </p>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-orgc61509d">
-<h3 id="orgc61509d">Wire connection</h3>
+<section id="slide-org7da05a5">
+<h3 id="org7da05a5">Wire connection</h3>
 <p>
 First, connects Tx to Rx from one MCUs and and vice versa for the other. Then, a simple code can be used to test if the channel is working. Note that here we are treating the Drumsticks side as a master (sender) and the Buzzer side as a slave (receiver).<br />
 </p>
 </section>
-<section id="slide-org6251a6f">
-<h3 id="org6251a6f">Serial Communication: Sender side</h3>
+<section id="slide-org32bbe88">
+<h3 id="org32bbe88">Serial Communication: Sender side</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C"><span style="color: #7aa6da;">void</span> <span style="color: #e78c45;">setup</span>() {
@@ -495,8 +491,8 @@ First, connects Tx to Rx from one MCUs and and vice versa for the other. Then, a
 </pre>
 </div>
 </section>
-<section id="slide-org01a629d">
-<h3 id="org01a629d">Serial Communication: Receiver side</h3>
+<section id="slide-orge7d9492">
+<h3 id="orge7d9492">Serial Communication: Receiver side</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C"><span style="color: #7aa6da;">int</span> <span style="color: #e7c547;">incomingByte</span>;      <span style="color: #969896; font-style: italic;">// </span><span style="color: #969896; font-style: italic;">a variable to read incoming serial data into</span>
@@ -528,22 +524,22 @@ Update this code to your two MCUs, you should see the 'L' and 'H' in the Serial 
 </section>
 </section>
 <section>
-<section id="slide-orgf3ad84c">
-<h2 id="orgf3ad84c">Wireless connection</h2>
+<section id="slide-orgc9290c4">
+<h2 id="orgc9290c4">Wireless connection</h2>
 <p>
 Time to connect your controller to the web so that users can control your band through WIFI.<br />
 For Access-Point WIFI setup, please reference to this online <a href="http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/">tutorial</a>.<br />
 </p>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-org3430159">
-<h3 id="org3430159">Employ your device to the World-Wide Web</h3>
+<section id="slide-orgcac8bfd">
+<h3 id="orgcac8bfd">Employ your device to the World-Wide Web</h3>
 <p>
 Please complete the tutorials linked in the previous slide before attempting this setup. In the online tutorial, you successful create a WIFI access point at your ESP8266 device; however, users have to connect to the WIFI you created in order to control the band. Quite inconvenient right? Indeed, we can actually do a simple port forward using our home WIFI to get our project online.<br />
 </p>
 </section>
-<section id="slide-org910f0c8">
-<h3 id="org910f0c8">ESP as a workstation: setup</h3>
+<section id="slide-org9a57f87">
+<h3 id="org9a57f87">ESP as a workstation: setup</h3>
 <div class="org-src-container">
 
 <pre  class="src src-C"><span style="color: #c397d8;">#include</span> <span style="color: #70c0b1;">&lt;ESP8266WiFi.h&gt;</span>
@@ -572,15 +568,15 @@ Please complete the tutorials linked in the previous slide before attempting thi
 </div>
 
 </section>
-<section id="slide-org1595404">
-<h3 id="org1595404">ESP as a workstation: loop</h3>
+<section id="slide-orgfccda5c">
+<h3 id="orgfccda5c">ESP as a workstation: loop</h3>
 <p>
 The code in loop() should be exactly the same as in the <a href="http://www.instructables.com/id/Programming-a-HTTP-Server-on-ESP-8266-12E/">tutorial</a>.<br />
 Essentially what we did here is connect our ESP to our home WIFI which is CONNECTED to the Internet; instead of treating ESP as a WIFI access point. Connecting to our home WIFI is a crucial step in getting our project online.<br />
 </p>
 </section>
-<section id="slide-org8243c79">
-<h3 id="org8243c79">Port Forwarding</h3>
+<section id="slide-org2ec122d">
+<h3 id="org2ec122d">Port Forwarding</h3>
 <p>
 If everything works well, you should now be able to connect to the control page at 192.168.4.1 given you are connected to your home WIFI. To get it online, we need to do a port forwarding in our router setting.<br />
 </p>
@@ -592,8 +588,8 @@ If everything works well, you should now be able to connect to the control page 
 
 </ol>
 </section>
-<section id="slide-orge5c336f">
-<h3 id="orge5c336f">Try it out!</h3>
+<section id="slide-orgf2da166">
+<h3 id="orgf2da166">Try it out!</h3>
 <p>
 If everything sets up correctly, go to the IP address of your router from anywhere whether you are using WIFI or cellular data. You should be able to see that control page of our jamband.<br />
 Moreover, you can make your own webpage with cool styles such as this one <a href="https://ckwojai.github.io/EE183_JamBand/control.html">here</a>.<br />
@@ -601,15 +597,15 @@ Moreover, you can make your own webpage with cool styles such as this one <a hre
 </section>
 </section>
 <section>
-<section id="slide-orgf068136">
-<h2 id="orgf068136">Summary</h2>
+<section id="slide-org2284886">
+<h2 id="org2284886">Summary</h2>
 <p>
 Now that you have learned all the essential knowledge in creating your own project, it's up to you to put everything together. If you want to recreate the project we did, follow the steps below:<br />
 </p>
 <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 </section>
-<section id="slide-orgef2f647">
-<h3 id="orgef2f647">Steps to recreate our project</h3>
+<section id="slide-orgc07926c">
+<h3 id="orgc07926c">Steps to recreate our project</h3>
 <ol>
 <li>Compose two songs each having two tempos, make sure the two instruments play in harmony.<br /></li>
 <li>Serial Communication: Send Ready, Song, and Tempo Signals on the master side, while write layers of if statements in the slave side to make sure it plays ONLY when according signals are received.<br /></li>
@@ -621,8 +617,8 @@ Now that you have learned all the essential knowledge in creating your own proje
 </section>
 </section>
 <section>
-<section id="slide-org5cb2e41">
-<h2 id="org5cb2e41">Conclusion</h2>
+<section id="slide-orgced3170">
+<h2 id="orgced3170">Conclusion</h2>
 <p>
 In this tutorial, we guided your through a detail setup of our project, including bill of materials, circuit schematics, code for controlling all the components, and Wireless setup. Based on what you have learned, you should have no problem recreating our project, or even build up on what we had and create your own project.<br />
 </p>

@@ -168,20 +168,17 @@
 * Composing your music with Servo and Buzzer
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
 ** Composing tunes for the buzzer
-   Define each note of one octave in programming language with different frequencies, then compose your song according to a note chart of your song. As shown below,
+   Define each note in frequency, then make sound with the buzzer using the corresponding frequency to match each note in the sheet. A duration is also added for the time length of each note. These two parameters are then pass to the Arduino function tone(frequency, duration) to let the buzzer make Sound.
    [[./img/compose.png]]
 ** Composing beats for the servo
-   1) Determine the starting angle and the ending angle for the servo
-   2) Program the “gap” between two beats, different sizes of “gap” plays different styles of beats.
-   3) We fixed the ending angle so that it always ended up with the same position when it hits the “drum”.
-   4) Two ways to control the "gap" size: changing the starting angle
-   5) Adjusting delay time gives the servo less time to reach its orientation before its next assigned operational state (which in turns change the ending angle).
+   As for the servo, it's better to code this together with the buzzer for synchronization purpose. We first need to determine the starting and ending angle for the servo. Fix the ending angle because that's where the stick hit the drum every time. Then program the delay as shown below, assume the initial configuration of servo is at starting angle,
 ** Tunes in harmony
-   1) Goal: Servo always hits its drum at the same moment the buzzer starts playing a new note.
-   2) Buzzer: easy to control; Servo: harder to control
-   3) So code the Servo first to make it sound like your song, then add the buzzer code under the SAME delay
-   4) Write them in the same mircocontroller first, parametrize the common tempo variable k
-   5) Composing this way, your drummer and trumpeter will always play under the same tempo in the perfect harmony
+   1) Set the servo to the ending angle
+   2) Apply some delay too allow time for the servo to go to the ending angle
+   3) After the above appropriate delay, this is when the stick hit the drum
+   4) Start playing one note of the buzzer music
+   5) Set the servo back to starting angle, and apply some delay for it to get there
+   6) Repeat the above steps
 * Communication between two micro-controllers
   Now that we get everything set up, we need a way for the two MCUs to talk to each other. For the sake of simplicity, we are using Serial Communication. 
   #+REVEAL_HTML: <a href="#" class="navigate-down"><img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow"></a>
