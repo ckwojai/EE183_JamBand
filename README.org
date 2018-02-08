@@ -63,8 +63,7 @@ tempo. [[http://www.futurlec.com/Pictures/3VPIEZOPCB.jpg]]
    :PROPERTIES:
    :CUSTOM_ID: steps
    :END:
-
-*** Step 1: ESP8266-E12 & MCU
+** Step 1: ESP8266-E12 & MS
     :PROPERTIES:
     :CUSTOM_ID: step-1-esp8266-e12-mcu
     :END:
@@ -81,7 +80,7 @@ http://www.instructables.com/id/Programming-the-ESP8266-12E-using-Arduino-softwa
 [[http://amazingrobots.net/wp-content/uploads/2016/06/nodemcu_pinout.png]]
 [[http://amazingrobots.net/wp-content/uploads/2016/06/motor_shield_diagram.jpg]]
 
-*** Step 2: Theory & Data Collection
+** Step 2: Theory & Data Collection
     :PROPERTIES:
     :CUSTOM_ID: step-2-theory-data-collection
     :END:
@@ -96,7 +95,7 @@ http://www.instructables.com/id/Programming-the-ESP8266-12E-using-Arduino-softwa
 [[https://github.com/waterbottels/EE183DALab2/blob/master/sensors5.png]]
 [[https://github.com/waterbottels/EE183DALab2/blob/master/sensors6.png]]
 
-*** Step 3: Logic Design & Execution
+** Step 3: Logic Design & Execution
     :PROPERTIES:
     :CUSTOM_ID: step-3-logic-design-execution
     :END:
@@ -121,7 +120,7 @@ power most of the devices.
 [[https://github.com/waterbottels/EE183DALab2/blob/master/mechanics.png]]
 
 [[https://github.com/waterbottels/EE183DALab2/blob/master/schematic.png]]
-### Step 4: Code The code can be found here:
+** Step 4: Code The code can be found here:
 https://github.com/ckwojai/EE183\_JamBand/tree/master/code
 
 * Multi-Robot Collaboration
@@ -142,7 +141,7 @@ tempo and song selection.
    :CUSTOM_ID: website
    :END:
 
-Website: https://ckwojai.github.io/EE183\_JamBand/ The drum micro
+Website: [[https://ckwojai.github.io/EE183_JamBand/index.html]] The drum micro
 controller (Master) is connected to a home Wifi. Go into the router
 settings and do port forwarding at port 80 (this is done in the code).
 You can use a service such as www.whatsmyip.org tofind your IP address.
@@ -157,7 +156,7 @@ which directly links to your robots controls.
    :PROPERTIES:
    :CUSTOM_ID: demonstrations
    :END:
-
-Below is a video demonstrating the JamBand. Sorry about the watermark.
+   Below is a video demonstrating the JamBand. Sorry about the watermark.
+   https://www.youtube.com/embed/MEb7xeRVj90
 
 
