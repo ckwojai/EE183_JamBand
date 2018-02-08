@@ -5,6 +5,7 @@
   - Check out our [[https://ckwojai.github.io/EE183_JamBand/control.html][awesome user interface]]
   - Check out our complete code: [[https://github.com/ckwojai/EE183_JamBand/blob/master/buzzer.ino][buzzer.ino]] and [[https://github.com/ckwojai/EE183_JamBand/blob/master/servo.ino][servo.ino]].
   - Check out our more detailed README below
+  - BY Amir, Angel, Lin, and Wilson
 * Introduction
    :PROPERTIES:
    :CUSTOM_ID: introduction
