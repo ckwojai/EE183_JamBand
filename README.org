@@ -1,7 +1,7 @@
 #+OPTIONS: /n:t
 * [[https://ckwojai.github.io/EE183_JamBand/index.html][Landing Page]]
-  Check out our step-by-step guid: [[https://ckwojai.github.io/EE183_JamBand/documentation/documentation.html]]
-  Check out our wonderful user interface: [[https://ckwojai.github.io/EE183_JamBand/control.html]]
+  - Check out our [[https://ckwojai.github.io/EE183_JamBand/documentation/documentation.html][step-by-step guide]]
+  - Check out our [[https://ckwojai.github.io/EE183_JamBand/control.html][wonderful user interface]]
 
 * To Recreate our project
 ** 1) Buy the materials, here's the list
